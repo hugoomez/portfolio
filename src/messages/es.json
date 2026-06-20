@@ -1,0 +1,118 @@
+{
+  "Metadata": {
+    "homeTitle": "Inicio",
+    "homeDescription": "Portfolio de un estudiante de doble grado en Ingeniería Informática y Matemáticas. Proyectos de software con base matemática, desarrollados con TypeScript, React y Next.js.",
+    "projectsTitle": "Proyectos",
+    "projectsDescription": "Casos de estudio de mis mejores proyectos: problema, solución, stack y resultados.",
+    "aboutTitle": "Sobre mí",
+    "aboutDescription": "Sobre mí: formación, experiencia y tecnologías que domino.",
+    "contactTitle": "Contacto",
+    "contactDescription": "Ponte en contacto conmigo para oportunidades, prácticas o colaboraciones.",
+    "mathTitle": "Matemáticas",
+    "mathDescription": "Donde las matemáticas se encuentran con el código: visualizaciones interactivas y notación renderizada."
+  },
+  "Nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "about": "Sobre mí",
+    "math": "Matemáticas",
+    "contact": "Contacto",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "skipToContent": "Saltar al contenido"
+  },
+  "Hero": {
+    "greeting": "Hola, soy",
+    "tagline": "Estudiante de doble grado en Ingeniería Informática y Matemáticas",
+    "intro": "Desarrollo software con una base matemática sólida. Me interesan los algoritmos, el modelado y construir productos cuidados de principio a fin.",
+    "viewProjects": "Ver proyectos",
+    "downloadCv": "Descargar CV",
+    "contact": "Contacto",
+    "availability": "Abierto a prácticas y oportunidades júnior"
+  },
+  "Home": {
+    "featuredTitle": "Proyectos destacados",
+    "featuredSubtitle": "Una selección de mi mejor trabajo, en formato caso de estudio.",
+    "allProjects": "Ver todos los proyectos",
+    "skillsTitle": "Tecnologías",
+    "skillsSubtitle": "Herramientas con las que trabajo a diario."
+  },
+  "Projects": {
+    "title": "Proyectos",
+    "subtitle": "Casos de estudio: problema, solución, stack y resultado.",
+    "empty": "Pronto añadiré más proyectos.",
+    "viewCaseStudy": "Ver caso de estudio",
+    "repo": "Código",
+    "demo": "Demo en vivo",
+    "backToProjects": "Volver a proyectos",
+    "techStack": "Stack tecnológico",
+    "theProblem": "El problema",
+    "theSolution": "La solución",
+    "featured": "Destacado"
+  },
+  "About": {
+    "title": "Sobre mí",
+    "subtitle": "Formación, experiencia y cómo trabajo.",
+    "educationTitle": "Formación y experiencia",
+    "skillsTitle": "Tecnologías",
+    "proficient": "Competente",
+    "familiar": "Familiarizado",
+    "learning": "Aprendiendo",
+    "downloadCv": "Descargar CV"
+  },
+  "Contact": {
+    "title": "Contacto",
+    "subtitle": "¿Tienes una oportunidad o quieres colaborar? Escríbeme.",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "message": "Mensaje",
+    "send": "Enviar mensaje",
+    "sending": "Enviando…",
+    "success": "¡Gracias! Tu mensaje se ha enviado. Te responderé pronto.",
+    "error": "Algo ha fallado. Inténtalo de nuevo o escríbeme directamente por correo.",
+    "orEmail": "O escríbeme directamente a",
+    "namePlaceholder": "Tu nombre",
+    "emailPlaceholder": "tu@email.com",
+    "messagePlaceholder": "Cuéntame en qué puedo ayudarte…",
+    "required": "Este campo es obligatorio",
+    "invalidEmail": "Introduce un correo válido"
+  },
+  "Math": {
+    "title": "Matemáticas + Código",
+    "subtitle": "El diferenciador: visualizaciones interactivas y notación matemática renderizada en el navegador.",
+    "intro": "Esta sección es opcional y modular. Combina renderizado de notación matemática (KaTeX) con visualizaciones interactivas para mostrar cómo aplico las matemáticas al software.",
+    "descentTitle": "Descenso de gradiente, en directo",
+    "descentDescription": "El descenso de gradiente minimiza una función avanzando en contra de su gradiente. Ajusta la tasa de aprendizaje (η) y el punto inicial para ver cómo converge — o diverge.",
+    "learningRate": "Tasa de aprendizaje (η)",
+    "startPoint": "Punto inicial (x₀)",
+    "steps": "Pasos",
+    "reset": "Reiniciar",
+    "fourierTitle": "Serie de Fourier de una onda cuadrada",
+    "fourierDescription": "Una onda cuadrada se aproxima sumando armónicos impares. Aumenta el número de términos y observa cómo la suma converge a la señal objetivo (con el fenómeno de Gibbs en los saltos).",
+    "terms": "Número de términos (n)",
+    "iterations": "iteraciones"
+  },
+  "Footer": {
+    "builtWith": "Construido con Next.js, TypeScript y Tailwind CSS.",
+    "rights": "Todos los derechos reservados.",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Correo"
+  },
+  "Theme": {
+    "toggle": "Cambiar tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  },
+  "Locale": {
+    "switch": "Cambiar idioma",
+    "es": "Español",
+    "en": "English"
+  },
+  "NotFound": {
+    "title": "Página no encontrada",
+    "description": "La página que buscas no existe o se ha movido.",
+    "home": "Volver al inicio"
+  }
+}

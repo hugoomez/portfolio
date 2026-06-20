@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local tooling / build planning (kept out of the public repo)
+.claude/
+plan_ejecucion.md

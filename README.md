@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
 
-## Getting Started
+Bilingual (🇪🇸 / 🇬🇧) developer portfolio for a Computer Science + Mathematics
+double-degree student. Built to be edited in minutes and deployed free on Vercel.
 
-First, run the development server:
+**Live:** _set your URL here after deploying_ → `https://<your-project>.vercel.app`
+
+## Stack
+
+- **Next.js 16** (App Router, Turbopack) + **React 19**
+- **TypeScript** (strict)
+- **Tailwind CSS v4** (CSS-first `@theme`, dark mode via `next-themes`)
+- **next-intl** — full i18n (Spanish default, English at `/en`)
+- **Vercel Analytics** + **Speed Insights**
+- **Formspree** contact form (with a `mailto:` fallback)
+- **KaTeX** + hand-built interactive SVG visualisations on the optional `/math` route
+
+## Features
+
+- 🌗 Light / dark / system theme, no flash of wrong theme
+- 🌍 Bilingual content model (`{ es, en }`) + localized UI strings
+- 📁 Project case studies driven by a single typed file (`src/content/projects.ts`)
+- 🔎 SEO: per-page metadata, `sitemap.xml` with hreflang, `robots.txt`,
+  build-time OG image, JSON-LD `Person` structured data
+- ♿ Accessibility: semantic HTML, visible focus, skip link, reduced-motion support
+- 🧮 Optional, modular maths showcase (gradient descent + Fourier series demos)
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+cp .env.example .env.local   # then fill in the values
+pnpm dev                     # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build & run production locally:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm build
+pnpm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Make it yours
 
-## Learn More
+All the content lives in a handful of files — see **[CONTENT_GUIDE.md](./CONTENT_GUIDE.md)**.
+Quick map:
 
-To learn more about Next.js, take a look at the following resources:
+| What | Where |
+| --- | --- |
+| Name, email, socials, CV paths | `src/lib/config.ts` |
+| Projects (case studies) | `src/content/projects.ts` |
+| Skills | `src/data/skills.ts` |
+| Education / experience | `src/data/experience.ts` |
+| UI strings (es/en) | `src/messages/*.json` |
+| Screenshots | `public/images/projects/` |
+| CVs (PDF) | `public/cv/` |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Search the codebase for `TODO (USER)` to find every spot that needs your input.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Environment variables
 
-## Deploy on Vercel
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Canonical URL (metadata, OG, sitemap). Set to your `*.vercel.app` URL. |
+| `NEXT_PUBLIC_FORM` | Formspree form id. Empty → contact form falls back to `mailto:`. |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy (Vercel)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Push this repo to GitHub.
+2. On [vercel.com](https://vercel.com): **Add New → Project → Import** the repo
+   (framework auto-detects Next.js).
+3. Add the environment variables above (Production + Preview).
+4. Deploy → you get `https://<project>.vercel.app` with automatic HTTPS and
+   Git-based CI/CD (push to `master` ships to production; PRs get preview URLs).
+
+See [DEPLOY.md](./DEPLOY.md) for the full step-by-step.

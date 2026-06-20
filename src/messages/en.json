@@ -1,0 +1,118 @@
+{
+  "Metadata": {
+    "homeTitle": "Home",
+    "homeDescription": "Portfolio of a Computer Science + Mathematics double-degree student. Software projects with a mathematical foundation, built with TypeScript, React and Next.js.",
+    "projectsTitle": "Projects",
+    "projectsDescription": "Case studies of my best projects: problem, solution, stack and results.",
+    "aboutTitle": "About",
+    "aboutDescription": "About me: education, experience and the technologies I work with.",
+    "contactTitle": "Contact",
+    "contactDescription": "Get in touch about opportunities, internships or collaborations.",
+    "mathTitle": "Mathematics",
+    "mathDescription": "Where mathematics meets code: interactive visualisations and rendered notation."
+  },
+  "Nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "math": "Mathematics",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to content"
+  },
+  "Hero": {
+    "greeting": "Hi, I'm",
+    "tagline": "Computer Science & Mathematics double-degree student",
+    "intro": "I build software on a solid mathematical foundation. I'm drawn to algorithms, modelling, and shipping polished products end to end.",
+    "viewProjects": "View projects",
+    "downloadCv": "Download CV",
+    "contact": "Contact",
+    "availability": "Open to internships and junior roles"
+  },
+  "Home": {
+    "featuredTitle": "Featured projects",
+    "featuredSubtitle": "A selection of my best work, in case-study form.",
+    "allProjects": "View all projects",
+    "skillsTitle": "Technologies",
+    "skillsSubtitle": "Tools I work with day to day."
+  },
+  "Projects": {
+    "title": "Projects",
+    "subtitle": "Case studies: problem, solution, stack and result.",
+    "empty": "More projects coming soon.",
+    "viewCaseStudy": "View case study",
+    "repo": "Code",
+    "demo": "Live demo",
+    "backToProjects": "Back to projects",
+    "techStack": "Tech stack",
+    "theProblem": "The problem",
+    "theSolution": "The solution",
+    "featured": "Featured"
+  },
+  "About": {
+    "title": "About",
+    "subtitle": "Education, experience and how I work.",
+    "educationTitle": "Education & experience",
+    "skillsTitle": "Technologies",
+    "proficient": "Proficient",
+    "familiar": "Familiar",
+    "learning": "Learning",
+    "downloadCv": "Download CV"
+  },
+  "Contact": {
+    "title": "Contact",
+    "subtitle": "Got an opportunity or want to collaborate? Drop me a line.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send message",
+    "sending": "Sending…",
+    "success": "Thanks! Your message was sent. I'll get back to you soon.",
+    "error": "Something went wrong. Please try again or email me directly.",
+    "orEmail": "Or email me directly at",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "you@email.com",
+    "messagePlaceholder": "Tell me how I can help…",
+    "required": "This field is required",
+    "invalidEmail": "Please enter a valid email"
+  },
+  "Math": {
+    "title": "Mathematics + Code",
+    "subtitle": "The differentiator: interactive visualisations and math notation rendered in the browser.",
+    "intro": "This section is optional and modular. It combines math notation rendering (KaTeX) with interactive visualisations to show how I apply mathematics to software.",
+    "descentTitle": "Gradient descent, live",
+    "descentDescription": "Gradient descent minimises a function by stepping against its gradient. Tweak the learning rate (η) and the starting point to watch it converge — or diverge.",
+    "learningRate": "Learning rate (η)",
+    "startPoint": "Start point (x₀)",
+    "steps": "Steps",
+    "reset": "Reset",
+    "fourierTitle": "Fourier series of a square wave",
+    "fourierDescription": "A square wave is approximated by summing odd harmonics. Increase the number of terms and watch the sum converge to the target signal (with Gibbs ringing at the jumps).",
+    "terms": "Number of terms (n)",
+    "iterations": "iterations"
+  },
+  "Footer": {
+    "builtWith": "Built with Next.js, TypeScript and Tailwind CSS.",
+    "rights": "All rights reserved.",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Email"
+  },
+  "Theme": {
+    "toggle": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "Locale": {
+    "switch": "Switch language",
+    "es": "Español",
+    "en": "English"
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has moved.",
+    "home": "Back to home"
+  }
+}
