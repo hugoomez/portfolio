@@ -6,12 +6,29 @@
  * See CONTENT_GUIDE.md for the full checklist.
  */
 
+const DEFAULT_URL = "https://portfolio.vercel.app";
+
+/**
+ * Normalise NEXT_PUBLIC_SITE_URL into a valid absolute URL so a malformed value
+ * (e.g. "hugogomez" with no protocol) can never crash the build's `new URL(...)`.
+ * Adds https:// if missing and falls back to the default if still invalid.
+ */
+function resolveSiteUrl(raw: string | undefined): string {
+  if (!raw) return DEFAULT_URL;
+  let value = raw.trim().replace(/\/+$/, "");
+  if (!value) return DEFAULT_URL;
+  if (!/^https?:\/\//i.test(value)) value = `https://${value}`;
+  try {
+    return new URL(value).origin;
+  } catch {
+    return DEFAULT_URL;
+  }
+}
+
 export const siteConfig = {
-  // Canonical production URL. On Vercel set NEXT_PUBLIC_SITE_URL to your
-  // *.vercel.app URL (or custom domain) in the project's Environment Variables.
-  url:
-    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-    "https://portfolio.vercel.app",
+  // Canonical production URL. On Vercel set NEXT_PUBLIC_SITE_URL to your full
+  // *.vercel.app URL (or custom domain), e.g. https://portfolio-xxx.vercel.app
+  url: resolveSiteUrl(process.env.NEXT_PUBLIC_SITE_URL),
 
   // TODO (USER): your full name — feeds page titles, JSON-LD and the OG image.
   name: "Nombre Apellido",
