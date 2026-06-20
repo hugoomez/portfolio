@@ -55,10 +55,12 @@
     "subtitle": "Formación, experiencia y cómo trabajo.",
     "educationTitle": "Formación y experiencia",
     "skillsTitle": "Tecnologías",
-    "proficient": "Competente",
-    "familiar": "Familiarizado",
-    "learning": "Aprendiendo",
     "downloadCv": "Descargar CV"
+  },
+  "Skills": {
+    "Languages": "Lenguajes",
+    "MachineLearning": "Machine Learning",
+    "Tools": "Herramientas"
   },
   "Contact": {
     "title": "Contacto",

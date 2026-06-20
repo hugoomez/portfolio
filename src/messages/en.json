@@ -55,10 +55,12 @@
     "subtitle": "Education, experience and how I work.",
     "educationTitle": "Education & experience",
     "skillsTitle": "Technologies",
-    "proficient": "Proficient",
-    "familiar": "Familiar",
-    "learning": "Learning",
     "downloadCv": "Download CV"
+  },
+  "Skills": {
+    "Languages": "Languages",
+    "MachineLearning": "Machine Learning",
+    "Tools": "Tools"
   },
   "Contact": {
     "title": "Contact",

@@ -31,21 +31,21 @@ export const siteConfig = {
   url: resolveSiteUrl(process.env.NEXT_PUBLIC_SITE_URL),
 
   // TODO (USER): your full name — feeds page titles, JSON-LD and the OG image.
-  name: "Nombre Apellido",
+  name: "Hugo Gómez García",
 
   // Short professional handle used in the header / footer.
-  shortName: "Nombre Apellido",
+  shortName: "Hugo Gómez",
 
   // University / education context used in JSON-LD structured data.
-  university: "Universidad de Oviedo — EPI Gijón",
+  university: "Universidad de Oviedo",
 
   // TODO (USER): your professional contact email.
-  email: "tu.email@example.com",
+  email: "gomezgarciahu@gmail.com",
 
   // Public-facing social / professional profiles. Empty string = hidden.
   social: {
-    github: "https://github.com/tu-usuario", // TODO (USER)
-    linkedin: "https://www.linkedin.com/in/tu-usuario", // TODO (USER)
+    github: "https://github.com/hugoomez", // TODO (USER)
+    linkedin: "https://www.linkedin.com/in/hugoomez/", // TODO (USER)
   },
 
   // Downloadable CVs. Drop the PDFs in /public/cv/ (see CONTENT_GUIDE.md).
