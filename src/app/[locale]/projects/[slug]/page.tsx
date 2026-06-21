@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink, Lock, Trophy } from "lucide-react";
 import { GithubIcon } from "@/components/ui/BrandIcons";
 import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { buttonClasses } from "@/components/ui/Button";
 import { ProjectCover } from "@/components/features/ProjectCover";
+import { MediaCarousel } from "@/components/features/MediaCarousel";
 import { routing } from "@/i18n/routing";
 import { getAllProjects, getProjectBySlug } from "@/content/projects";
 import { pick } from "@/lib/utils";
@@ -52,6 +53,8 @@ export default async function ProjectDetailPage({
   const t = await getTranslations({ locale, namespace: "Projects" });
   const title = pick(project.title, locale);
 
+  const hasMedia = project.media && project.media.length > 0;
+
   return (
     <article className="py-12 sm:py-16">
       <Container>
@@ -64,6 +67,21 @@ export default async function ProjectDetailPage({
         </Link>
 
         <header className="mt-6">
+          {project.award && (
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-sm font-medium text-amber-600 dark:text-amber-400">
+              <Trophy className="h-4 w-4" />
+              <span>{pick(project.award.label, locale)}</span>
+              {project.award.event && (
+                <>
+                  <span className="text-amber-500/50">·</span>
+                  <span className="font-normal text-muted-foreground">
+                    {pick(project.award.event, locale)}
+                  </span>
+                </>
+              )}
+            </div>
+          )}
+
           <h1 className="text-3xl font-bold sm:text-4xl">{title}</h1>
           <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
             {pick(project.summary, locale)}
@@ -81,27 +99,40 @@ export default async function ProjectDetailPage({
                 {t("demo")}
               </a>
             )}
-            {project.repoUrl && (
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={buttonClasses({ variant: "secondary", size: "sm" })}
-              >
-                <GithubIcon className="h-4 w-4" />
-                {t("repo")}
-              </a>
+            {project.privateRepo ? (
+              <span className={buttonClasses({ variant: "secondary", size: "sm" })}>
+                <Lock className="h-4 w-4" />
+                {t("privateRepo")}
+              </span>
+            ) : (
+              project.repoUrl && (
+                <a
+                  href={project.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={buttonClasses({ variant: "secondary", size: "sm" })}
+                >
+                  <GithubIcon className="h-4 w-4" />
+                  {t("repo")}
+                </a>
+              )
             )}
           </div>
         </header>
 
-        <div className="mt-8 overflow-hidden rounded-xl border border-border">
-          <ProjectCover
-            slug={project.slug}
-            title={title}
-            image={project.image}
-            priority
-          />
+        <div className="mt-8">
+          {hasMedia ? (
+            <MediaCarousel items={project.media!} title={title} priority />
+          ) : (
+            <div className="overflow-hidden rounded-xl border border-border">
+              <ProjectCover
+                slug={project.slug}
+                title={title}
+                image={project.image}
+                priority
+              />
+            </div>
+          )}
         </div>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_240px]">

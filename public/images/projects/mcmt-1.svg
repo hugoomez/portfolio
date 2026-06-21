@@ -1,0 +1,164 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0A0D13"/>
+      <stop offset="1" stop-color="#12161F"/>
+    </linearGradient>
+    <linearGradient id="funnelFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2E7E9C" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#2E7E9C" stop-opacity="0.10"/>
+    </linearGradient>
+    <radialGradient id="badgeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#1C4A5C" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#1C4A5C" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="clusterGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#6B4A1C" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#6B4A1C" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.1" fill="#1E2733" opacity="0.6"/>
+    </pattern>
+    <filter id="glowCyan" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowAmber" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect x="0" y="0" width="1600" height="900" fill="url(#bgGrad)"/>
+  <rect x="0" y="0" width="1600" height="900" fill="url(#dots)"/>
+
+  <!-- faint blueprint rules behind the gates -->
+  <g stroke="#161C26" stroke-width="1" stroke-dasharray="2,7" opacity="0.7">
+    <line x1="0" y1="316" x2="1600" y2="316"/>
+    <line x1="0" y1="392" x2="1600" y2="392"/>
+    <line x1="0" y1="468" x2="1600" y2="468"/>
+    <line x1="0" y1="544" x2="1600" y2="544"/>
+    <line x1="0" y1="620" x2="1600" y2="620"/>
+  </g>
+
+  <!-- title -->
+  <text x="90" y="108" font-family="Space Grotesk, Inter, Helvetica Neue, Arial, sans-serif" font-size="50" font-weight="700" letter-spacing="1" fill="#EDF1F7">MCMT</text>
+  <text x="90" y="136" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="16" fill="#8B96A8">Seguimiento multi-cámara multi-objetivo en tiempo real</text>
+  <line x1="90" y1="150" x2="300" y2="150" stroke="#49D3FF" stroke-width="2"/>
+
+  <!-- stat pills -->
+  <g font-family="IBM Plex Mono, SFMono-Regular, Consolas, monospace" font-size="12" letter-spacing="0.5">
+    <g>
+      <rect x="1000" y="58" width="150" height="32" rx="16" fill="none" stroke="#2A3344" stroke-width="1.2"/>
+      <circle cx="1018" cy="74" r="3" fill="#49D3FF"/>
+      <text x="1032" y="79" fill="#B7C2D1">1.300 CÁMARAS</text>
+    </g>
+    <g>
+      <rect x="1166" y="58" width="150" height="32" rx="16" fill="none" stroke="#2A3344" stroke-width="1.2"/>
+      <circle cx="1184" cy="74" r="3" fill="#49D3FF"/>
+      <text x="1198" y="79" fill="#B7C2D1">33 MS / FRAME</text>
+    </g>
+    <g>
+      <rect x="1332" y="58" width="170" height="32" rx="16" fill="none" stroke="#2A3344" stroke-width="1.2"/>
+      <circle cx="1350" cy="74" r="3" fill="#49D3FF"/>
+      <text x="1364" y="79" fill="#B7C2D1">13.000 LOTES/S</text>
+    </g>
+  </g>
+
+  <!-- camera row feeding the funnel -->
+  <g>
+    <g stroke="#2A3344" stroke-width="1.2" stroke-dasharray="2,3">
+      <line x1="320" y1="189" x2="320" y2="240"/>
+      <line x1="400" y1="189" x2="400" y2="240"/>
+      <line x1="480" y1="189" x2="480" y2="240"/>
+      <line x1="560" y1="189" x2="560" y2="240"/>
+      <line x1="640" y1="189" x2="640" y2="240"/>
+      <line x1="720" y1="189" x2="720" y2="240"/>
+      <line x1="800" y1="189" x2="800" y2="240"/>
+    </g>
+    <g fill="#121620" stroke="#5B6678" stroke-width="1.2">
+      <g><rect x="311" y="178" width="18" height="11" rx="2"/><circle cx="320" cy="183.5" r="3.4" fill="#0A0D13" stroke="#7C8AA0"/></g>
+      <g><rect x="391" y="178" width="18" height="11" rx="2"/><circle cx="400" cy="183.5" r="3.4" fill="#0A0D13" stroke="#7C8AA0"/></g>
+      <g><rect x="471" y="178" width="18" height="11" rx="2"/><circle cx="480" cy="183.5" r="3.4" fill="#0A0D13" stroke="#7C8AA0"/></g>
+      <g><rect x="551" y="178" width="18" height="11" rx="2"/><circle cx="560" cy="183.5" r="3.4" fill="#0A0D13" stroke="#7C8AA0"/></g>
+      <g><rect x="631" y="178" width="18" height="11" rx="2"/><circle cx="640" cy="183.5" r="3.4" fill="#0A0D13" stroke="#7C8AA0"/></g>
+      <g><rect x="711" y="178" width="18" height="11" rx="2"/><circle cx="720" cy="183.5" r="3.4" fill="#0A0D13" stroke="#7C8AA0"/></g>
+      <g><rect x="791" y="178" width="18" height="11" rx="2"/><circle cx="800" cy="183.5" r="3.4" fill="#0A0D13" stroke="#7C8AA0"/></g>
+    </g>
+  </g>
+
+  <!-- the 5-gate staircase funnel -->
+  <path d="M320,240 L800,240 L800,316 L740,316 L740,392 L690,392 L690,468 L650,468 L650,544 L620,544 L620,620 L595,620 L525,620 L525,544 L500,544 L500,468 L470,468 L470,392 L430,392 L430,316 L380,316 L380,240 Z"
+        fill="url(#funnelFill)" stroke="#49D3FF" stroke-width="2.5" filter="url(#glowCyan)"/>
+
+  <!-- gate leader markers + labels -->
+  <g font-family="IBM Plex Mono, SFMono-Regular, Consolas, monospace" font-size="13" fill="#8B96A8">
+    <line x1="800" y1="316" x2="840" y2="316" stroke="#3A4658" stroke-width="1.5"/>
+    <circle cx="800" cy="316" r="4" fill="#49D3FF"/>
+    <text x="848" y="320">G1 · Compatibilidad de cámaras — descarta ≈99.6%</text>
+
+    <line x1="740" y1="392" x2="840" y2="392" stroke="#3A4658" stroke-width="1.5"/>
+    <circle cx="740" cy="392" r="4" fill="#49D3FF"/>
+    <text x="848" y="396">G2 · Proximidad en el suelo — descarta ≈90% del resto</text>
+
+    <line x1="690" y1="468" x2="840" y2="468" stroke="#3A4658" stroke-width="1.5"/>
+    <circle cx="690" cy="468" r="4" fill="#49D3FF"/>
+    <text x="848" y="472">G3 · Distancia de Mahalanobis (elipse del EKF)</text>
+
+    <line x1="650" y1="544" x2="840" y2="544" stroke="#3A4658" stroke-width="1.5"/>
+    <circle cx="650" cy="544" r="4" fill="#49D3FF"/>
+    <text x="848" y="548">G4 · Coherencia de velocidad</text>
+
+    <line x1="620" y1="620" x2="840" y2="620" stroke="#3A4658" stroke-width="1.5"/>
+    <circle cx="620" cy="620" r="4" fill="#49D3FF"/>
+    <text x="848" y="624">G5 · Similitud de apariencia (Re-ID)</text>
+  </g>
+
+  <!-- ambient glows -->
+  <circle cx="620" cy="760" r="150" fill="url(#badgeGlow)"/>
+  <circle cx="1180" cy="580" r="150" fill="url(#clusterGlow)"/>
+
+  <!-- main stream: funnel exit -> identity (the 99% direct path) -->
+  <path d="M525,620 L595,620 L585,700 L535,700 Z" fill="url(#funnelFill)" stroke="#49D3FF" stroke-width="2"/>
+
+  <!-- branch to MPGNN and back (the 1% path) -->
+  <path d="M595,620 C 760,600 950,580 1125,595" fill="none" stroke="#FFB454" stroke-width="2" stroke-dasharray="6,5" opacity="0.85"/>
+  <path d="M1175,635 C 1020,710 820,762 690,752" fill="none" stroke="#FFB454" stroke-width="2" stroke-dasharray="6,5" opacity="0.85"/>
+
+  <!-- MPGNN node cluster -->
+  <g>
+    <g stroke="#FFB454" stroke-width="1.5" opacity="0.55" fill="none">
+      <line x1="1135" y1="545" x2="1215" y2="525"/>
+      <line x1="1215" y1="525" x2="1245" y2="595"/>
+      <line x1="1245" y1="595" x2="1175" y2="635"/>
+      <line x1="1175" y1="635" x2="1125" y2="595"/>
+      <line x1="1125" y1="595" x2="1135" y2="545"/>
+    </g>
+    <line x1="1135" y1="545" x2="1245" y2="595" stroke="#FFD9A0" stroke-width="2.5" filter="url(#glowAmber)"/>
+    <circle cx="1135" cy="545" r="8.5" fill="#171313" stroke="#FFD9A0" stroke-width="2.2" filter="url(#glowAmber)"/>
+    <circle cx="1215" cy="525" r="8" fill="#171313" stroke="#FFB454" stroke-width="1.8"/>
+    <circle cx="1245" cy="595" r="8.5" fill="#171313" stroke="#FFD9A0" stroke-width="2.2" filter="url(#glowAmber)"/>
+    <circle cx="1175" cy="635" r="8" fill="#171313" stroke="#FFB454" stroke-width="1.8"/>
+    <circle cx="1125" cy="595" r="8" fill="#171313" stroke="#FFB454" stroke-width="1.8"/>
+    <text x="1180" y="678" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="14" fill="#EDF1F7">MPGNN — red de grafos</text>
+    <text x="1180" y="696" text-anchor="middle" font-family="IBM Plex Mono, Consolas, monospace" font-size="11" fill="#7C8AA0">≈1% de casos ambiguos · atención + Sinkhorn</text>
+  </g>
+
+  <!-- identity badge: literal 99% / 1% ring -->
+  <g>
+    <circle cx="620" cy="760" r="60" fill="none" stroke="#1A2230" stroke-width="14"/>
+    <circle cx="620" cy="760" r="60" fill="none" stroke="#49D3FF" stroke-width="14"
+            stroke-dasharray="373.22 3.77" transform="rotate(-90 620 760)" filter="url(#glowCyan)"/>
+    <circle cx="620" cy="760" r="60" fill="none" stroke="#FFB454" stroke-width="14"
+            stroke-dasharray="3.77 373.22" stroke-dashoffset="-373.22" transform="rotate(-90 620 760)" filter="url(#glowAmber)"/>
+    <circle cx="620" cy="760" r="44" fill="#0E1219" stroke="#22293A" stroke-width="1"/>
+    <text x="620" y="767" text-anchor="middle" font-family="IBM Plex Mono, Consolas, monospace" font-size="20" font-weight="700" fill="#EDF1F7">ID</text>
+
+    <text x="468" y="700" text-anchor="end" font-family="IBM Plex Mono, Consolas, monospace" font-size="13" fill="#7CE6FF">99% · GLANCE (geometría)</text>
+    <text x="700" y="706" text-anchor="start" font-family="IBM Plex Mono, Consolas, monospace" font-size="13" fill="#FFD9A0">1% · MPGNN</text>
+
+    <text x="620" y="846" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="15" letter-spacing="1" fill="#EDF1F7">IDENTIDAD GLOBAL</text>
+    <text x="620" y="864" text-anchor="middle" font-family="Inter, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#7C8AA0">fusión de pistas locales multi-cámara</text>
+  </g>
+</svg>

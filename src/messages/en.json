@@ -48,7 +48,9 @@
     "techStack": "Tech stack",
     "theProblem": "The problem",
     "theSolution": "The solution",
-    "featured": "Featured"
+    "featured": "Featured",
+    "privateRepo": "Private code",
+    "privateRepoTitle": "The repository for this project is private"
   },
   "About": {
     "title": "About",

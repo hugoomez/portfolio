@@ -48,7 +48,9 @@
     "techStack": "Stack tecnológico",
     "theProblem": "El problema",
     "theSolution": "La solución",
-    "featured": "Destacado"
+    "featured": "Destacado",
+    "privateRepo": "Código privado",
+    "privateRepoTitle": "El repositorio de este proyecto es privado"
   },
   "About": {
     "title": "Sobre mí",

@@ -1,5 +1,5 @@
 import { useLocale, useTranslations } from "next-intl";
-import { ExternalLink, ArrowRight } from "lucide-react";
+import { ExternalLink, ArrowRight, Lock, Trophy } from "lucide-react";
 import { GithubIcon } from "@/components/ui/BrandIcons";
 import { Link } from "@/i18n/navigation";
 import { Card } from "@/components/ui/Card";
@@ -19,22 +19,41 @@ export function ProjectCard({
   const t = useTranslations("Projects");
   const title = pick(project.title, locale);
 
+  const coverImage =
+    project.media?.find((m) => m.type === "image")?.src ??
+    project.image;
+
   return (
     <Card className="group flex flex-col overflow-hidden transition-shadow hover:shadow-md">
-      <Link href={`/projects/${project.slug}`} className="block">
-        <ProjectCover
-          slug={project.slug}
-          title={title}
-          image={project.image}
-          priority={priority}
-        />
-      </Link>
+      <div className="relative">
+        <Link href={`/projects/${project.slug}`} className="block">
+          <ProjectCover
+            slug={project.slug}
+            title={title}
+            image={coverImage}
+            priority={priority}
+          />
+        </Link>
+
+        {project.award && (
+          <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-amber-500/90 px-2.5 py-1 text-xs font-semibold text-white shadow-md backdrop-blur-sm">
+            <Trophy className="h-3 w-3" />
+            {pick(project.award.label, locale)}
+          </div>
+        )}
+      </div>
 
       <div className="flex flex-1 flex-col p-5">
         <div className="mb-2 flex items-center gap-2">
           {project.featured && (
             <Badge className="border-accent/40 text-accent">
               {t("featured")}
+            </Badge>
+          )}
+          {project.privateRepo && (
+            <Badge className="border-muted-foreground/30 text-muted-foreground">
+              <Lock className="mr-1 h-3 w-3" />
+              {t("privateRepo")}
             </Badge>
           )}
         </div>
@@ -67,16 +86,25 @@ export function ProjectCard({
             <ArrowRight className="h-3.5 w-3.5" />
           </Link>
           <div className="flex items-center gap-3 text-muted-foreground">
-            {project.repoUrl && (
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${t("repo")} — ${title}`}
-                className="transition-colors hover:text-foreground"
+            {project.privateRepo ? (
+              <span
+                title={t("privateRepoTitle")}
+                className="flex items-center gap-1 text-muted-foreground/50"
               >
-                <GithubIcon className="h-4 w-4" />
-              </a>
+                <Lock className="h-4 w-4" />
+              </span>
+            ) : (
+              project.repoUrl && (
+                <a
+                  href={project.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${t("repo")} — ${title}`}
+                  className="transition-colors hover:text-foreground"
+                >
+                  <GithubIcon className="h-4 w-4" />
+                </a>
+              )
             )}
             {project.demoUrl && (
               <a
