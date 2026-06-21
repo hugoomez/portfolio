@@ -112,44 +112,37 @@ export const projects: Project[] = [
     featured: true,
     date: "2026-01-15",
   },
-  // TODO: reemplaza este placeholder con tu proyecto real.
-  // Este ejemplo muestra cómo usar el badge de premio + repo privado.
   {
-    slug: "placeholder-web-app",
+    slug: "biofit",
     title: {
-      es: "Aplicación web (placeholder)",
-      en: "Web app (placeholder)",
+      es: "BioFit — Ecosistema de salud integral impulsado por IA",
+      en: "BioFit — AI-powered integral health ecosystem",
     },
     summary: {
-      es: "Sustituye este texto por una frase corta que describa tu proyecto.",
-      en: "Replace this with a short sentence describing your project.",
+      es: "Coach de IA que analiza tu técnica en tiempo real mediante visión por computador, diseña rutinas personalizadas y hace el seguimiento de tu nutrición y progreso.",
+      en: "AI coach that analyses your exercise technique in real time using computer vision, designs personalised routines, and tracks your nutrition and progress.",
     },
     description: {
-      es: "Describe aquí el contexto, tu rol y el impacto. Enlaza el repositorio y, si es posible, una demo en vivo.",
-      en: "Describe the context, your role and the impact here. Link the repository and, if possible, a live demo.",
+      es: "BioFit va más allá de una app de gimnasio: es un ecosistema de salud donde la inteligencia artificial actúa como entrenador personal disponible en cualquier momento. El núcleo del sistema es un motor de visión por computador construido sobre MediaPipe que analiza la postura frame a frame, detecta errores de técnica y emite correcciones antes de que el usuario termine la repetición. Alrededor de ese motor se articula un asistente de IA que gestiona la nutrición (registro de ingesta, objetivos calóricos y de macros), crea y adapta rutinas de entrenamiento personalizadas, y muestra un panel de análisis con el progreso del usuario a lo largo del tiempo. Toda la información se persiste en base de datos, lo que permite comparar sesiones y detectar tendencias reales de mejora.",
+      en: "BioFit goes beyond a simple gym app: it's a health ecosystem where artificial intelligence acts as a personal trainer available at any time. The core is a computer vision engine built on MediaPipe that analyses the user's posture frame by frame, detects technique errors, and issues specific corrections before the user finishes the repetition. Around that engine sits an AI assistant that manages nutrition (intake logging, calorie and macro goals), creates and adapts personalised training routines, and displays a progress analytics dashboard over time. All data is persisted in a database, enabling session-to-session comparisons and real improvement trends.",
     },
     problem: {
-      es: "¿Qué necesidad cubría la aplicación?",
-      en: "What need did the app address?",
+      es: "Acceder a un entrenador personal cualificado está fuera del alcance de la mayoría. Las apps de fitness existentes son herramientas pasivas: registran lo que el usuario introduce, pero no observan, no corrigen y no razonan. El resultado es que millones de personas entrenan con mala técnica durante meses —acumulando lesiones— sin recibir feedback útil.",
+      en: "Access to a qualified personal trainer is out of reach for most people. Existing fitness apps are passive tools: they record what the user inputs, but they don't observe, don't correct, and don't reason. The result is that millions of people train with poor technique for months — accumulating injuries — without ever receiving useful feedback.",
     },
     solution: {
-      es: "Arquitectura, decisiones de diseño y resultado final.",
-      en: "Architecture, design decisions and final result.",
+      es: "BioFit reemplaza el ojo del entrenador con un pipeline de visión por computador basado en MediaPipe Pose, que extrae 33 puntos del esqueleto en tiempo real desde la cámara del dispositivo y evalúa los ángulos articulares y la alineación postural en cada repetición. Cuando detecta una desviación significativa, emite una corrección específica antes de que el movimiento se complete. La capa de IA integra este feedback visual con el perfil del usuario (nivel, objetivos, historial) para adaptar semana a semana las rutinas y las recomendaciones nutricionales. Todo el estado se persiste en base de datos, lo que habilita curvas de progreso reales y análisis longitudinal del rendimiento.",
+      en: "BioFit replaces the trainer's eye with a computer vision pipeline built on MediaPipe Pose, which extracts 33 skeleton landmarks in real time from the device camera and evaluates joint angles and postural alignment for every repetition. When it detects a significant deviation, it issues a specific correction before the movement is completed. The AI layer integrates this visual feedback with the user's profile (level, goals, history) to adapt weekly routines and nutritional recommendations. All state is persisted in a database, enabling real progress curves and longitudinal performance analysis.",
     },
-    tech: ["React", "Next.js", "Tailwind CSS"],
-    repoUrl: "https://github.com/hugoomez/tu-repo",
-    demoUrl: "https://tu-demo.vercel.app",
-    // IMAGEN SIMPLE: usa `image` si solo tienes una captura y no necesitas carrusel.
-    // image: "/images/projects/placeholder-web-app.webp",
-    // PREMIO: descomenta y edita si el proyecto ganó algo.
+    tech: ["Python", "Streamlit", "MediaPipe", "NumPy", "Pandas", "SQLite"],
+    // demoUrl: "",  // añade la demo cuando esté lista
     award: {
       label: { es: "Finalista", en: "Finalist" },
-      event: { es: "Nombre del hackathon o concurso", en: "Hackathon or competition name" },
+      event: { es: "Premios Santander X de Emprendimiento Universitario", en: "Santander X University Entrepreneurship Awards" },
     },
-    // REPO PRIVADO: descomenta si el código no es público.
-    // privateRepo: true,
+    privateRepo: true,
     featured: true,
-    date: "2025-11-02",
+    date: "2025-11-01",
   },
   // TODO: reemplaza este placeholder con tu proyecto real.
   // Este ejemplo muestra un proyecto con repositorio privado.

@@ -6,7 +6,7 @@
 
 export const skills = {
   Languages: ["Python", "C++", "SQL", "Java", "C"],
-  MachineLearning: ["PyTorch", "scikit-learn", "NumPy", "Pandas"],
+  MachineLearning: ["PyTorch", "scikit-learn", "NumPy", "Pandas", "Scipy"],
   Tools: ["Git", "Linux", "Docker", "PostgreSQL"],
 } as const;
 
