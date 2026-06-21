@@ -144,36 +144,32 @@ export const projects: Project[] = [
     featured: true,
     date: "2025-11-01",
   },
-  // TODO: reemplaza este placeholder con tu proyecto real.
-  // Este ejemplo muestra un proyecto con repositorio privado.
   {
-    slug: "placeholder-algorithm",
+    slug: "echolens",
     title: {
-      es: "Proyecto algorítmico (placeholder)",
-      en: "Algorithmic project (placeholder)",
+      es: "EchoLens — Clasificador de audio en tiempo real en el navegador",
+      en: "EchoLens — Real-time in-browser audio classifier",
     },
     summary: {
-      es: "Sustituye este texto. Ideal para proyectos donde las matemáticas se encuentran con el código.",
-      en: "Replace this. Great for projects where mathematics meets code.",
+      es: "CNN que clasifica sonidos urbanos al instante en tu propio dispositivo: entrena en PyTorch, se cuantiza a INT8 y corre al 100% sobre WebAssembly en el navegador, sin servidor y sin que el audio salga del dispositivo.",
+      en: "CNN that classifies urban sounds instantly on your own device: trained in PyTorch, quantized to INT8, and running 100% on WebAssembly in the browser — no server, no audio ever leaving the device.",
     },
     description: {
-      es: "Perfecto para mostrar tu perfil CS + Matemáticas: optimización, grafos, criptografía, simulación numérica… Explica el fundamento matemático y la implementación.",
-      en: "Great to showcase your CS + Mathematics profile: optimisation, graphs, cryptography, numerical simulation… Explain the mathematical foundation and the implementation.",
+      es: "EchoLens es un clasificador de sonido que funciona íntegramente en el navegador, sin servidor: el usuario abre la web, hace un sonido, y el sistema lo clasifica al instante en su propio dispositivo sin que el audio salga nunca de él. Técnicamente combina el entrenamiento de una CNN en PyTorch sobre UrbanSound8K, su exportación a ONNX y cuantización a INT8 para reducir el tamaño del modelo ~4× con menos de 2 puntos de pérdida de accuracy, y su ejecución en tiempo real con onnxruntime-web sobre WebAssembly. La captura del micrófono y el cálculo de los espectrogramas log-mel se realizan en vivo en el navegador con la Web Audio API y un AudioWorklet. El proyecto demuestra de forma conjunta competencias que rara vez aparecen juntas: procesamiento digital de señal de audio (STFT, filtros mel), entrenamiento y optimización de modelos de deep learning, despliegue de ML en el edge (cuantización y conversión de modelos) e ingeniería de ML en el navegador (inferencia on-device sobre WASM), con prácticas profesionales de ingeniería: CI/CD, tests y evaluación cuantitativa de latencia y precisión.",
+      en: "EchoLens is a sound classifier that runs entirely in the browser with no server: the user opens the page, makes a sound, and the system classifies it instantly on their own device — the audio never leaves it. Technically it combines training a CNN in PyTorch on UrbanSound8K, exporting it to ONNX and quantizing it to INT8 to reduce model size ~4× with less than 2 accuracy points lost, and running it in real time with onnxruntime-web on WebAssembly. Microphone capture and log-mel spectrogram extraction run live in the browser via the Web Audio API and an AudioWorklet. The project demonstrates a set of skills that rarely appear together: digital audio signal processing (STFT, mel filters), deep learning model training and optimization, edge ML deployment (quantization and model conversion), and browser ML engineering (on-device inference on WASM) — all with professional engineering practices: CI/CD, tests, and quantitative evaluation of latency and accuracy.",
     },
     problem: {
-      es: "El problema formal y sus restricciones.",
-      en: "The formal problem and its constraints.",
+      es: "Los modelos de ML de audio suelen requerir enviar el sonido a un servidor para su clasificación, lo que introduce latencia de red, dependencia de conectividad y, sobre todo, problemas de privacidad: el audio del usuario sale de su dispositivo. Los navegadores modernos ofrecen las primitivas necesarias para evitar esto, pero integrar el pipeline completo —captura de micrófono, extracción de características y inferencia neuronal— de forma eficiente sobre WebAssembly no es trivial.",
+      en: "ML audio models typically require sending audio to a server for classification, introducing network latency, connectivity dependency, and above all privacy concerns: the user's audio leaves their device. Modern browsers offer the primitives to avoid this, but combining the full pipeline — microphone capture, feature extraction, and neural network inference — efficiently on WebAssembly is non-trivial.",
     },
     solution: {
-      es: "El algoritmo elegido, su complejidad y por qué es el adecuado.",
-      en: "The chosen algorithm, its complexity and why it fits.",
+      es: "Entrené una CNN sobre UrbanSound8K (10 clases de sonidos urbanos) en PyTorch con validación cruzada de 10 folds. Exporté el modelo a ONNX y lo cuanticé a INT8 —reducción ~4× con menos de 2 puntos de pérdida de accuracy— para inferencia eficiente en el edge. El despliegue es 100% client-side con onnxruntime-web sobre WebAssembly: la captura del micrófono y el cálculo de espectrogramas log-mel corren en tiempo real mediante la Web Audio API y un AudioWorklet, garantizando la paridad numérica entre el preprocesado en Python y en JavaScript. El proyecto incluye un estudio comparativo de backends de inferencia (WASM vs WebGPU) con métricas de latencia documentadas.",
+      en: "I trained a CNN on UrbanSound8K (10 urban sound classes) in PyTorch with 10-fold cross-validation. I exported the model to ONNX and quantized it to INT8 — approximately 4× size reduction with less than 2 accuracy points lost — for efficient edge inference. Deployment is 100% client-side with onnxruntime-web on WebAssembly: microphone capture and log-mel spectrogram extraction run live via the Web Audio API and an AudioWorklet, with guaranteed numerical parity between the Python and JavaScript preprocessing pipelines. The project includes a comparative study of inference backends (WASM vs WebGPU) with documented latency metrics.",
     },
-    tech: ["Python", "NumPy", "Matplotlib"],
-    // REPO PRIVADO activo: el botón de GitHub se sustituye por un candado.
-    privateRepo: true,
-    // repoUrl: "https://github.com/hugoomez/tu-repo",  // ignorado si privateRepo: true
-    featured: false,
-    date: "2025-09-20",
+    tech: ["PyTorch", "ONNX", "onnxruntime-web", "WebAssembly", "TypeScript", "Web Audio API", "Python"],
+    repoUrl: "https://github.com/hugoomez/echolens", // actualiza si el slug del repo es diferente
+    featured: true,
+    date: "2025-12-01",
   },
 ];
 
