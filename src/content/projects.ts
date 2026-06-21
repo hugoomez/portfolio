@@ -110,7 +110,7 @@ export const projects: Project[] = [
     },
     privateRepo: true,
     featured: true,
-    date: "2026-01-15",
+    date: "2025-07-05",
   },
   {
     slug: "operacion-picos-de-europa",
@@ -137,7 +137,7 @@ export const projects: Project[] = [
     tech: ["Python", "FastAPI", "Pydantic", "DICOM", "Idonia API", "Recog API", "Biomedical NER", "INFLESZ", "JWT"],
     privateRepo: true,
     featured: true,
-    date: "2026-02-01",
+    date: "2026-06-01",
   },
   {
     slug: "biofit",
@@ -169,7 +169,7 @@ export const projects: Project[] = [
     },
     privateRepo: true,
     featured: true,
-    date: "2025-11-01",
+    date: "2026-06-01",
   },
   {
     slug: "echolens",
@@ -196,7 +196,7 @@ export const projects: Project[] = [
     tech: ["PyTorch", "ONNX", "onnxruntime-web", "WebAssembly", "TypeScript", "Web Audio API", "Python"],
     repoUrl: "https://github.com/hugoomez/echolens", // actualiza si el slug del repo es diferente
     featured: true,
-    date: "2025-12-01",
+    date: "2026-06-14",
   },
 ];
 
