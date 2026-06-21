@@ -48,6 +48,9 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/hugoomez/", // TODO (USER)
   },
 
+  // Your headshot. Drop the file at public/images/avatar.png — set to "" to hide.
+  avatar: "/images/avatar.png",
+
   // Downloadable CVs. Drop the PDFs in /public/cv/ (see CONTENT_GUIDE.md).
   cv: {
     es: "/cv/cv-es.pdf",

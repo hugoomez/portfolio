@@ -95,14 +95,14 @@ export function MediaCarousel({
             <button
               onClick={prev}
               aria-label="Anterior"
-              className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-background/80 p-2 shadow-md backdrop-blur-sm transition hover:bg-background"
+              className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-background/80 p-3 shadow-md backdrop-blur-sm transition hover:bg-background"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
             <button
               onClick={next}
               aria-label="Siguiente"
-              className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-background/80 p-2 shadow-md backdrop-blur-sm transition hover:bg-background"
+              className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-background/80 p-3 shadow-md backdrop-blur-sm transition hover:bg-background"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
