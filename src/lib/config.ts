@@ -49,7 +49,7 @@ export const siteConfig = {
   },
 
   // Your headshot. Drop the file at public/images/avatar.png — set to "" to hide.
-  avatar: "/images/avatar.png",
+  avatar: "",
 
   // Downloadable CVs. Drop the PDFs in /public/cv/ (see CONTENT_GUIDE.md).
   cv: {
