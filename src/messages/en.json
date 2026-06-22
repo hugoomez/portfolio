@@ -57,7 +57,10 @@
     "subtitle": "Education, experience and how I work.",
     "educationTitle": "Education & experience",
     "skillsTitle": "Technologies",
-    "downloadCv": "Download CV"
+    "downloadCv": "Download CV",
+    "labTitle": "Lab",
+    "labDescription": "Interactive visualisations of dynamic systems, Fourier series, and gradient descent — where mathematics becomes code.",
+    "labCta": "Open lab"
   },
   "Skills": {
     "Languages": "Languages",
@@ -94,7 +97,9 @@
     "fourierTitle": "Fourier series of a square wave",
     "fourierDescription": "A square wave is approximated by summing odd harmonics. Increase the number of terms and watch the sum converge to the target signal (with Gibbs ringing at the jumps).",
     "terms": "Number of terms (n)",
-    "iterations": "iterations"
+    "iterations": "iterations",
+    "convergence": "convergence of f(x)",
+    "clickHint": "click the chart to set x₀"
   },
   "Footer": {
     "builtWith": "Built with Next.js, TypeScript and Tailwind CSS.",

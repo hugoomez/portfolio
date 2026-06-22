@@ -57,7 +57,10 @@
     "subtitle": "Formación, experiencia y cómo trabajo.",
     "educationTitle": "Formación y experiencia",
     "skillsTitle": "Tecnologías",
-    "downloadCv": "Descargar CV"
+    "downloadCv": "Descargar CV",
+    "labTitle": "Laboratorio",
+    "labDescription": "Visualizaciones interactivas de sistemas dinámicos, series de Fourier y descenso de gradiente — donde las matemáticas se convierten en código.",
+    "labCta": "Abrir laboratorio"
   },
   "Skills": {
     "Languages": "Lenguajes",
@@ -94,7 +97,9 @@
     "fourierTitle": "Serie de Fourier de una onda cuadrada",
     "fourierDescription": "Una onda cuadrada se aproxima sumando armónicos impares. Aumenta el número de términos y observa cómo la suma converge a la señal objetivo (con el fenómeno de Gibbs en los saltos).",
     "terms": "Número de términos (n)",
-    "iterations": "iteraciones"
+    "iterations": "iteraciones",
+    "convergence": "convergencia de f(x)",
+    "clickHint": "haz clic en la gráfica para fijar x₀"
   },
   "Footer": {
     "builtWith": "Construido con Next.js, TypeScript y Tailwind CSS.",

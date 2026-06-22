@@ -13,7 +13,6 @@ const navItems = [
   { href: "/", key: "home" },
   { href: "/projects", key: "projects" },
   { href: "/about", key: "about" },
-  { href: "/math", key: "math" },
   { href: "/contact", key: "contact" },
 ] as const;
 

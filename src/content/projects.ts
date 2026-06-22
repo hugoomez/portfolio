@@ -101,7 +101,7 @@ export const projects: Project[] = [
     // repoUrl: "https://github.com/hugoomez/mcmt", // descomenta y ajusta si el repo es público
     // demoUrl: "https://tu-demo.vercel.app",
     media: [
-      { type: "video", src: "/images/projects/mcmt-demo.mp4" },
+      { type: "video", src: "/images/projects/mcmt-demo.mp4", poster: "/images/projects/mcmt-poster.png" },
       { type: "image", src: "/images/projects/mcmt-1.svg", alt: { es: "Arquitectura de MCMT", en: "MCMT architecture" } },
     ],
     award: {
@@ -135,6 +135,7 @@ export const projects: Project[] = [
       en: "I designed a pipeline that ingests the DICOM study and technical report from the Idonia API, invokes Recog's LLM to produce a patient-language humanized version, and before delivery subjects it to a four-layer validation belt: (1) INFLESZ score to guarantee real readability, (2) clinical checklist verifying the presence of required sections, (3) biomedical NER that cross-references clinical entities in the original and the summary to detect omissions, and (4) an LLM-based semantic judge that evaluates whether clinical severity has been faithfully preserved. The pipeline only delivers the humanized report if it passes all four thresholds; otherwise it blocks and logs the failure for review. The swappable stub/live client architecture and the JWT authentication resolved through reverse engineering allowed integrating both real APIs within the hackathon timeframe.",
     },
     tech: ["Python", "FastAPI", "Pydantic", "DICOM", "Idonia API", "Recog API", "Biomedical NER", "INFLESZ", "JWT"],
+    image: "/images/projects/picos-cover.png",
     privateRepo: true,
     featured: true,
     date: "2026-06-01",
@@ -163,6 +164,9 @@ export const projects: Project[] = [
     },
     tech: ["Python", "Streamlit", "MediaPipe", "NumPy", "Pandas", "SQLite"],
     // demoUrl: "",  // añade la demo cuando esté lista
+    media: [
+      { type: "video", src: "/images/projects/biofit-demo.mp4" },
+    ],
     award: {
       label: { es: "Finalista", en: "Finalist" },
       event: { es: "Premios Santander X de Emprendimiento Universitario", en: "Santander X University Entrepreneurship Awards" },
@@ -194,7 +198,8 @@ export const projects: Project[] = [
       en: "I trained a CNN on UrbanSound8K (10 urban sound classes) in PyTorch with 10-fold cross-validation. I exported the model to ONNX and quantized it to INT8 — approximately 4× size reduction with less than 2 accuracy points lost — for efficient edge inference. Deployment is 100% client-side with onnxruntime-web on WebAssembly: microphone capture and log-mel spectrogram extraction run live via the Web Audio API and an AudioWorklet, with guaranteed numerical parity between the Python and JavaScript preprocessing pipelines. The project includes a comparative study of inference backends (WASM vs WebGPU) with documented latency metrics.",
     },
     tech: ["PyTorch", "ONNX", "onnxruntime-web", "WebAssembly", "TypeScript", "Web Audio API", "Python"],
-    repoUrl: "https://github.com/hugoomez/echolens", // actualiza si el slug del repo es diferente
+    image: "/images/projects/echolens.png",
+    repoUrl: "https://github.com/hugoomez/echolens",
     featured: true,
     date: "2026-06-14",
   },

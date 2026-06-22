@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { useLocale, useTranslations } from "next-intl";
-import { Download } from "lucide-react";
+import { Download, ArrowRight } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { buttonClasses } from "@/components/ui/Button";
+import { Link } from "@/i18n/navigation";
 import { ExperienceTimeline } from "@/components/features/ExperienceTimeline";
 import { SkillsGrid } from "@/components/features/SkillsGrid";
 import { siteConfig } from "@/lib/config";
@@ -62,6 +63,18 @@ function AboutContent() {
         className="border-t border-border"
       >
         <SkillsGrid />
+      </Section>
+
+      <Section
+        eyebrow="03"
+        title={t("labTitle")}
+        className="border-t border-border"
+      >
+        <p className="mb-6 max-w-2xl text-muted-foreground">{t("labDescription")}</p>
+        <Link href="/math" className={buttonClasses({ variant: "secondary" })}>
+          {t("labCta")}
+          <ArrowRight className="h-4 w-4" />
+        </Link>
       </Section>
     </>
   );
