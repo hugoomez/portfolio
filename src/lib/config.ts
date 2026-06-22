@@ -53,8 +53,8 @@ export const siteConfig = {
 
   // Downloadable CVs. Drop the PDFs in /public/cv/ (see CONTENT_GUIDE.md).
   cv: {
-    es: "/cv/cv-es.pdf",
-    en: "/cv/cv-en.pdf",
+    es: "/cv/CV_Hugo_Gomez_Garcia_ESP.pdf",
+    en: "/cv/CV_Hugo_Gomez_Garcia_EN.pdf",
   },
 
   // Formspree form id (https://formspree.io). Set NEXT_PUBLIC_FORM in .env.local
