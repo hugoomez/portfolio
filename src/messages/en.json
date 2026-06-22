@@ -24,7 +24,7 @@
   "Hero": {
     "greeting": "Hi, I'm",
     "tagline": "Computer Science & Mathematics double-degree student",
-    "intro": "I build software on a solid mathematical foundation. I'm drawn to algorithms, modelling, and shipping polished products end to end.",
+    "intro": "I build software on a solid mathematical foundation. I'm drawn to artificial intelligence, machine learning, and shipping polished systems end to end.",
     "viewProjects": "View projects",
     "downloadCv": "Download CV",
     "contact": "Contact",
@@ -87,7 +87,6 @@
   "Math": {
     "title": "Mathematics + Code",
     "subtitle": "Interactive visualisations of dynamic systems, machine learning and signal analysis — mathematics running in the browser.",
-    "intro": "This section is optional and modular. It combines math notation rendering (KaTeX) with interactive visualisations to show how I apply mathematics to software.",
     "descentTitle": "Gradient descent, live",
     "descentDescription": "Gradient descent minimises a function by stepping against its gradient. Tweak the learning rate (η) and the starting point to watch it converge — or diverge.",
     "learningRate": "Learning rate (η)",

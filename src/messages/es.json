@@ -24,7 +24,7 @@
   "Hero": {
     "greeting": "Hola, soy",
     "tagline": "Estudiante de doble grado en Ingeniería Informática y Matemáticas",
-    "intro": "Desarrollo software con una base matemática sólida. Me interesan los algoritmos, el modelado y construir productos cuidados de principio a fin.",
+    "intro": "Desarrollo software con base matemática sólida. Me apasionan la inteligencia artificial, el aprendizaje automático y construir sistemas cuidados de principio a fin.",
     "viewProjects": "Ver proyectos",
     "downloadCv": "Descargar CV",
     "contact": "Contacto",
@@ -87,7 +87,6 @@
   "Math": {
     "title": "Matemáticas + Código",
     "subtitle": "Visualizaciones interactivas de sistemas dinámicos, aprendizaje automático y análisis de señales — matemáticas que se ejecutan en el navegador.",
-    "intro": "Esta sección es opcional y modular. Combina renderizado de notación matemática (KaTeX) con visualizaciones interactivas para mostrar cómo aplico las matemáticas al software.",
     "descentTitle": "Descenso de gradiente, en directo",
     "descentDescription": "El descenso de gradiente minimiza una función avanzando en contra de su gradiente. Ajusta la tasa de aprendizaje (η) y el punto inicial para ver cómo converge — o diverge.",
     "learningRate": "Tasa de aprendizaje (η)",

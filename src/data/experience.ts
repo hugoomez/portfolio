@@ -1,9 +1,6 @@
 import type { LocalizedText } from "@/content/projects";
 
-/**
- * EDUCATION & EXPERIENCE timeline.
- * TODO (USER): replace with your real education, internships and roles.
- */
+/** Education & experience timeline. */
 
 export interface TimelineItem {
   /** e.g. "2023 — present" */

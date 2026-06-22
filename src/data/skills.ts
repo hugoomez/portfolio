@@ -1,8 +1,4 @@
-/**
- * SKILLS — grouped by category (not percentage bars, which recruiters dislike).
- * Category display labels are localized in src/messages/*.json under "Skills".
- * TODO (USER): adjust the lists to reflect your real experience.
- */
+/** Skills grouped by category. Display labels are localized under "Skills" in messages. */
 
 export const skills = {
   Languages: ["Python", "C++", "SQL", "Java", "C"],

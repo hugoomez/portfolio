@@ -1,10 +1,4 @@
-/**
- * Central site configuration.
- *
- * TODO (USER): Edit the values in this file with your real data. Everything the
- * site needs to brand itself (name, tagline, social links, CV paths) lives here.
- * See CONTENT_GUIDE.md for the full checklist.
- */
+/** Central site configuration. */
 
 const DEFAULT_URL = "https://portfolio.vercel.app";
 
@@ -30,22 +24,17 @@ export const siteConfig = {
   // *.vercel.app URL (or custom domain), e.g. https://portfolio-xxx.vercel.app
   url: resolveSiteUrl(process.env.NEXT_PUBLIC_SITE_URL),
 
-  // TODO (USER): your full name — feeds page titles, JSON-LD and the OG image.
   name: "Hugo Gómez García",
 
-  // Short professional handle used in the header / footer.
   shortName: "Hugo Gómez",
 
-  // University / education context used in JSON-LD structured data.
   university: "Universidad de Oviedo",
 
-  // TODO (USER): your professional contact email.
   email: "gomezgarciahu@gmail.com",
 
-  // Public-facing social / professional profiles. Empty string = hidden.
   social: {
-    github: "https://github.com/hugoomez", // TODO (USER)
-    linkedin: "https://www.linkedin.com/in/hugoomez/", // TODO (USER)
+    github: "https://github.com/hugoomez",
+    linkedin: "https://www.linkedin.com/in/hugoomez/",
   },
 
   // Your headshot. Drop the file at public/images/avatar.png — set to "" to hide.

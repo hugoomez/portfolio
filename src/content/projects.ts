@@ -98,8 +98,7 @@ export const projects: Project[] = [
       "PyTorch (entrenamiento)",
       "SQLite",
     ],
-    // repoUrl: "https://github.com/hugoomez/mcmt", // descomenta y ajusta si el repo es público
-    // demoUrl: "https://tu-demo.vercel.app",
+    // repoUrl: "https://github.com/hugoomez/mcmt",
     media: [
       { type: "image", src: "/images/projects/mcmt.png" },
       { type: "video", src: "/images/projects/mcmt-demo.mp4" },
@@ -111,7 +110,7 @@ export const projects: Project[] = [
     },
     privateRepo: true,
     featured: true,
-    date: "2025-07-05",
+    date: "2026-06-22",
   },
   {
     slug: "operacion-picos-de-europa",
