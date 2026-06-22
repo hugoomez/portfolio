@@ -20,14 +20,16 @@ function MediaSlide({
 }) {
   if (item.type === "image") {
     return (
-      <Image
-        src={item.src}
-        alt={item.alt ? pick(item.alt, locale) : title}
-        width={1200}
-        height={675}
-        priority={priority}
-        className="aspect-[16/9] w-full object-contain bg-muted/40"
-      />
+      <div className="relative aspect-[16/9] w-full bg-muted/40">
+        <Image
+          src={item.src}
+          alt={item.alt ? pick(item.alt, locale) : title}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          priority={priority}
+          className="object-contain"
+        />
+      </div>
     );
   }
 

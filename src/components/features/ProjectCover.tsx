@@ -18,14 +18,16 @@ export function ProjectCover({
 }) {
   if (image) {
     return (
-      <Image
-        src={image}
-        alt={title}
-        width={1200}
-        height={675}
-        priority={priority}
-        className="aspect-[16/9] w-full object-contain bg-muted/40"
-      />
+      <div className="relative aspect-[16/9] w-full bg-muted/40">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={priority}
+          className="object-contain"
+        />
+      </div>
     );
   }
 
