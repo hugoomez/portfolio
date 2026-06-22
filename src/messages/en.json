@@ -99,7 +99,15 @@
     "terms": "Number of terms (n)",
     "iterations": "iterations",
     "convergence": "convergence of f(x)",
-    "clickHint": "click the chart to set x₀"
+    "clickHint": "click the chart to set x₀",
+    "lorenzTitle": "Lorenz Attractor",
+    "lorenzDescription": "Chaotic dynamical system described by three ODEs. Change σ or ρ to explore the bifurcation: below ρ ≈ 24.7 the system converges to a fixed point; above, chaos emerges.",
+    "lorenzHint": "ρ < 24.7 → fixed point · ρ > 24.7 → chaos",
+    "nnTitle": "Interactive neural classifier",
+    "nnDescription": "2→8→1 network (ReLU + sigmoid). Left-click to add class-A points, right-click for class B. The network trains in real time and draws the live decision boundary.",
+    "nnClass0": "Class A (left)",
+    "nnClass1": "Class B (right)",
+    "nnHint": "Click the canvas to add points — training starts automatically."
   },
   "Footer": {
     "builtWith": "Built with Next.js, TypeScript and Tailwind CSS.",

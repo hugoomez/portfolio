@@ -4,6 +4,8 @@ import { useTranslations } from "next-intl";
 import { Section } from "@/components/ui/Section";
 import { GradientDescentDemo } from "@/components/features/GradientDescentDemo";
 import { FourierDemo } from "@/components/features/FourierDemo";
+import { LorenzDemo } from "@/components/features/LorenzDemo";
+import { NeuralNetDemo } from "@/components/features/NeuralNetDemo";
 
 export async function generateMetadata({
   params,
@@ -38,6 +40,8 @@ function MathContent() {
       <div className="grid gap-8 lg:grid-cols-2">
         <GradientDescentDemo />
         <FourierDemo />
+        <LorenzDemo />
+        <NeuralNetDemo />
       </div>
     </Section>
   );

@@ -99,7 +99,15 @@
     "terms": "Número de términos (n)",
     "iterations": "iteraciones",
     "convergence": "convergencia de f(x)",
-    "clickHint": "haz clic en la gráfica para fijar x₀"
+    "clickHint": "haz clic en la gráfica para fijar x₀",
+    "lorenzTitle": "Atractor de Lorenz",
+    "lorenzDescription": "Sistema dinámico caótico descrito por tres EDOs. Cambia σ o ρ para explorar la bifurcación: por debajo de ρ ≈ 24.7 el sistema converge a un punto fijo; por encima, aparece el caos.",
+    "lorenzHint": "ρ < 24.7 → punto fijo · ρ > 24.7 → caos",
+    "nnTitle": "Clasificador neuronal interactivo",
+    "nnDescription": "Red 2→8→1 (ReLU + sigmoide). Clic izquierdo para añadir puntos de clase A, clic derecho para clase B. La red entrena en tiempo real y dibuja la frontera de decisión.",
+    "nnClass0": "Clase A (izq.)",
+    "nnClass1": "Clase B (der.)",
+    "nnHint": "Haz clic en el canvas para añadir puntos — el entrenamiento arranca solo."
   },
   "Footer": {
     "builtWith": "Construido con Next.js, TypeScript y Tailwind CSS.",
