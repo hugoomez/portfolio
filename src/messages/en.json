@@ -86,7 +86,7 @@
   },
   "Math": {
     "title": "Mathematics + Code",
-    "subtitle": "The differentiator: interactive visualisations and math notation rendered in the browser.",
+    "subtitle": "Interactive visualisations of dynamic systems, machine learning and signal analysis — mathematics running in the browser.",
     "intro": "This section is optional and modular. It combines math notation rendering (KaTeX) with interactive visualisations to show how I apply mathematics to software.",
     "descentTitle": "Gradient descent, live",
     "descentDescription": "Gradient descent minimises a function by stepping against its gradient. Tweak the learning rate (η) and the starting point to watch it converge — or diverge.",

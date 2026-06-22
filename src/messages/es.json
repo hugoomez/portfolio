@@ -86,7 +86,7 @@
   },
   "Math": {
     "title": "Matemáticas + Código",
-    "subtitle": "El diferenciador: visualizaciones interactivas y notación matemática renderizada en el navegador.",
+    "subtitle": "Visualizaciones interactivas de sistemas dinámicos, aprendizaje automático y análisis de señales — matemáticas que se ejecutan en el navegador.",
     "intro": "Esta sección es opcional y modular. Combina renderizado de notación matemática (KaTeX) con visualizaciones interactivas para mostrar cómo aplico las matemáticas al software.",
     "descentTitle": "Descenso de gradiente, en directo",
     "descentDescription": "El descenso de gradiente minimiza una función avanzando en contra de su gradiente. Ajusta la tasa de aprendizaje (η) y el punto inicial para ver cómo converge — o diverge.",
