@@ -36,7 +36,6 @@ function MathContent() {
 
   return (
     <Section title={t("title")} subtitle={t("subtitle")}>
-      <p className="mb-10 max-w-2xl text-muted-foreground">{t("intro")}</p>
       <div className="grid gap-8 lg:grid-cols-2">
         <GradientDescentDemo />
         <FourierDemo />

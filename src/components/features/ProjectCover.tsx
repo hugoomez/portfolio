@@ -24,7 +24,7 @@ export function ProjectCover({
         width={1200}
         height={675}
         priority={priority}
-        className="aspect-[16/9] w-full object-cover"
+        className="aspect-[16/9] w-full object-contain bg-muted/40"
       />
     );
   }
