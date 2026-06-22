@@ -101,7 +101,8 @@ export const projects: Project[] = [
     // repoUrl: "https://github.com/hugoomez/mcmt", // descomenta y ajusta si el repo es público
     // demoUrl: "https://tu-demo.vercel.app",
     media: [
-      { type: "video", src: "/images/projects/mcmt-demo.mp4", poster: "/images/projects/mcmt-poster.png" },
+      { type: "image", src: "/images/projects/mcmt.png" },
+      { type: "video", src: "/images/projects/mcmt-demo.mp4" },
       { type: "image", src: "/images/projects/mcmt-1.svg", alt: { es: "Arquitectura de MCMT", en: "MCMT architecture" } },
     ],
     award: {
@@ -165,6 +166,7 @@ export const projects: Project[] = [
     tech: ["Python", "Streamlit", "MediaPipe", "NumPy", "Pandas", "SQLite"],
     // demoUrl: "",  // añade la demo cuando esté lista
     media: [
+      { type: "image", src: "/images/projects/biofit.png" },
       { type: "video", src: "/images/projects/biofit-demo.mp4" },
     ],
     award: {
