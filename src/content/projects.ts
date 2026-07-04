@@ -199,8 +199,12 @@ export const projects: Project[] = [
       en: "I trained a CNN on UrbanSound8K (10 urban sound classes) in PyTorch with 10-fold cross-validation. I exported the model to ONNX and quantized it to INT8 — approximately 4× size reduction with less than 2 accuracy points lost — for efficient edge inference. Deployment is 100% client-side with onnxruntime-web on WebAssembly: microphone capture and log-mel spectrogram extraction run live via the Web Audio API and an AudioWorklet, with guaranteed numerical parity between the Python and JavaScript preprocessing pipelines. The project includes a comparative study of inference backends (WASM vs WebGPU) with documented latency metrics.",
     },
     tech: ["PyTorch", "ONNX", "onnxruntime-web", "WebAssembly", "TypeScript", "Web Audio API", "Python"],
-    image: "/images/projects/echolens.png",
+    demoUrl: "https://echolens-pied.vercel.app/",
     repoUrl: "https://github.com/hugoomez/echolens",
+    media: [
+      { type: "image", src: "/images/projects/echolens.png" },
+      { type: "video", src: "/images/projects/demo-echolens.mp4" },
+    ],
     featured: true,
     date: "2026-06-14",
   },
