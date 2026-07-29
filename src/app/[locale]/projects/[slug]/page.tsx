@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ArrowLeft, ExternalLink, Lock, Trophy } from "lucide-react";
+import { ArrowLeft, ExternalLink, FileText, Lock, Trophy } from "lucide-react";
 import { GithubIcon } from "@/components/ui/BrandIcons";
 import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/ui/Container";
@@ -97,6 +97,17 @@ export default async function ProjectDetailPage({
               >
                 <ExternalLink className="h-4 w-4" />
                 {t("demo")}
+              </a>
+            )}
+            {project.paperUrl && (
+              <a
+                href={project.paperUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonClasses({ variant: "secondary", size: "sm" })}
+              >
+                <FileText className="h-4 w-4" />
+                {t("paper")}
               </a>
             )}
             {project.privateRepo ? (

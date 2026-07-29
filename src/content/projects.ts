@@ -48,6 +48,8 @@ export interface Project {
   tech: string[];
   repoUrl?: string;
   demoUrl?: string;
+  /** Link to a research paper / preprint (e.g. Zenodo, arXiv). */
+  paperUrl?: string;
   /** Single cover image path under /public. Ignored when `media` is set. */
   image?: string;
   /** Carousel: ordered list of images / videos / YouTube embeds. */
@@ -207,6 +209,47 @@ export const projects: Project[] = [
     ],
     featured: true,
     date: "2026-06-14",
+  },
+  {
+    slug: "rag-hallucination-detector",
+    title: {
+      es: "Detector de alucinaciones en RAG",
+      en: "RAG Hallucination Detector",
+    },
+    summary: {
+      es: "Detector de alucinaciones para sistemas RAG: un pipeline completo (retrieval + generación + verificación) con un modelo que iguala el estado del arte publicado, y un paper de investigación que audita un problema de calidad de anotación no explotado en el benchmark estándar del campo.",
+      en: "A hallucination detector for RAG systems: a full pipeline (retrieval + generation + verification) with a model matching published state-of-the-art results, plus a research paper auditing an unexploited annotation-quality issue in the field's standard benchmark.",
+    },
+    description: {
+      es: 'Este proyecto aborda un problema real de los sistemas RAG (Retrieval-Augmented Generation): cómo detectar cuándo un LLM inventa información no respaldada por el contexto que se le ha proporcionado. Tiene dos entregables independientes y con resultados sólidos por sí mismos. El primero es el sistema: un pipeline RAG completo (retriever con FAISS + embeddings, generación vía LLM y un detector de alucinaciones a nivel de token) con una demo interactiva y una API desplegable; el modelo final (ModernBERT, clasificación binaria a nivel de token) iguala el F1 publicado de LettuceDetect-base y, en su variante escalada, supera ligeramente el F1 de LettuceDetect-large —el sistema de referencia más reciente del campo— entrenado enteramente con GPU gratuita. El segundo es el paper: durante la evaluación se descubrió que RAGTruth, el benchmark estándar del campo, etiqueta como "alucinación" tanto contenido falso como contenido verdadero pero no mencionado en el contexto, sin que ningún sistema publicado distinga entre ambos casos al puntuar. El proyecto cuantifica cuánto pesa esta conflación (9,49% de la masa de caracteres del test), diseña un experimento de ablación pre-registrado para comprobar si corregirla ayuda al entrenamiento —resultado: no, con una curva dosis-respuesta que descarta las dos explicaciones alternativas— y documenta el hallazgo completo en un preprint verificado línea por línea contra los datos brutos.',
+      en: 'This project tackles a real problem in RAG (Retrieval-Augmented Generation) systems: detecting when an LLM invents information not supported by the context it was given. It has two independent deliverables, each solid on its own. The first is the system: a complete RAG pipeline (FAISS + embeddings retriever, LLM generation, and a token-level hallucination detector) with an interactive demo and a deployable API; the final model (ModernBERT, token-level binary classification) matches the published F1 of LettuceDetect-base and, in its scaled-up variant, slightly surpasses the F1 of LettuceDetect-large — the field\'s most recent reference system — trained entirely on free GPU. The second is the paper: during evaluation, it turned out that RAGTruth, the field\'s standard benchmark, labels both false content and true-but-not-mentioned-in-context content as "hallucination," without any published system distinguishing between the two cases when scoring. The project quantifies exactly how much this conflation weighs (9.49% of the test set\'s character mass), designs a pre-registered ablation experiment to test whether fixing it helps training (result: no, with a dose-response curve ruling out both alternative explanations), and documents the full finding in a preprint verified line by line against the raw data.',
+    },
+    problem: {
+      es: "Los sistemas RAG en producción pueden generar respuestas que \"suenan bien\" pero no están respaldadas por los documentos recuperados —un riesgo real en dominios sensibles (legal, salud, finanzas). Además, el benchmark que la comunidad usa para medir estos detectores (RAGTruth) mezcla, bajo una misma etiqueta, alucinaciones realmente dañinas con contenido técnicamente no fundamentado pero verdadero —y ningún sistema publicado, incluidos los de referencia del campo, tiene esto en cuenta al reportar sus métricas.",
+      en: "Production RAG systems can generate answers that \"sound right\" but aren't actually supported by the retrieved documents — a real risk in sensitive domains (legal, healthcare, finance). On top of that, the benchmark the community uses to measure these detectors (RAGTruth) mixes, under a single label, genuinely harmful hallucinations with content that is technically ungrounded but true — and no published system, including the field's reference systems, accounts for this when reporting its metrics.",
+    },
+    solution: {
+      es: "Un detector de alucinaciones a nivel de token (ModernBERT), entrenado y validado con rigor experimental completo: baseline zero-shot, comparación sistemática entre 4 arquitecturas distintas, análisis de errores, y una ablación pre-registrada con decisión fijada en código antes de ver los resultados. El sistema se integra en un pipeline RAG real (retrieval + generación + verificación), con demo funcional y API. En paralelo, se cuantificó y documentó formalmente el problema de conflación de etiquetas en el benchmark, con verificación exhaustiva de cada cifra contra los datos brutos y contra las fuentes primarias citadas.",
+      en: "A token-level hallucination detector (ModernBERT), trained and validated with full experimental rigor: zero-shot baseline, systematic comparison across 4 different architectures, error analysis, and a pre-registered ablation with the decision fixed in code before seeing the results. The system is integrated into a real RAG pipeline (retrieval + generation + verification), with a working demo and API. In parallel, the benchmark's label-conflation problem was quantified and formally documented, with exhaustive verification of every figure against the raw data and the cited primary sources.",
+    },
+    tech: [
+      "PyTorch",
+      "Hugging Face Transformers",
+      "ModernBERT",
+      "FAISS",
+      "sentence-transformers",
+      "FastAPI",
+      "Docker",
+      "HTML/CSS/JS",
+    ],
+    repoUrl: "https://github.com/hugoomez/rag-hallucination-detector",
+    paperUrl: "https://zenodo.org/records/21693377",
+    media: [
+      { type: "image", src: "/images/projects/rag-hallucination-detector.png" },
+      { type: "image", src: "/images/projects/rag-hallucination-detector-1.png" },
+    ],
+    featured: true,
+    date: "2026-07-30",
   },
 ];
 
