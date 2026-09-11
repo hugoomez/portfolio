@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useTranslations } from "next-intl";
 import { Pause, Play, RotateCcw } from "lucide-react";
 import { Formula } from "./MathFormula";
 
@@ -32,7 +31,6 @@ const toX = (x: number) => W / 2 + x * (W / 58);
 const toY = (z: number) => H - 8 - (z / 55) * (H - 16);
 
 export function LorenzDemo() {
-  const t = useTranslations("Math");
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [playing, setPlaying] = useState(true);
   const [sigma, setSigma] = useState(10);
@@ -127,8 +125,12 @@ export function LorenzDemo() {
 
   return (
     <div className="rounded-xl border border-border bg-card p-6">
-      <h3 className="text-xl font-semibold">{t("lorenzTitle")}</h3>
-      <p className="mt-2 text-sm text-muted-foreground">{t("lorenzDescription")}</p>
+      <h3 className="text-xl font-semibold">Lorenz Attractor</h3>
+      <p className="mt-2 text-sm text-muted-foreground">
+        Chaotic dynamical system described by three ODEs. Change σ or ρ to explore the
+        bifurcation: below ρ ≈ 24.7 the system converges to a fixed point; above, chaos
+        emerges.
+      </p>
       <div className="mt-4 text-sm">
         <Formula math={"\\dot x=\\sigma(y{-}x),\\;\\dot y=x(\\rho{-}z){-}y,\\;\\dot z=xy{-}\\tfrac{8}{3}z"} />
       </div>
@@ -173,7 +175,7 @@ export function LorenzDemo() {
           />
         </label>
         <p className="font-mono text-xs text-muted-foreground">
-          {t("lorenzHint")}
+          ρ &lt; 24.7 → fixed point · ρ &gt; 24.7 → chaos
         </p>
       </div>
     </div>

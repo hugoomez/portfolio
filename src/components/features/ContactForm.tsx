@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
-import { useTranslations } from "next-intl";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 import { buttonClasses } from "@/components/ui/Button";
 import { siteConfig } from "@/lib/config";
@@ -16,14 +15,13 @@ export function ContactForm() {
 }
 
 function FormspreeForm() {
-  const t = useTranslations("Contact");
   const [state, handleSubmit] = useForm(siteConfig.formspreeId);
 
   if (state.succeeded) {
     return (
       <p className="flex items-center gap-2 rounded-lg border border-accent/40 bg-accent/10 p-4 text-sm text-foreground">
         <CheckCircle2 className="h-5 w-5 text-accent" />
-        {t("success")}
+        Thanks! Your message was sent. I&apos;ll get back to you soon.
       </p>
     );
   }
@@ -39,13 +37,13 @@ function FormspreeForm() {
         aria-hidden
         className="hidden"
       />
-      <Field id="name" label={t("name")} placeholder={t("namePlaceholder")} />
+      <Field id="name" label="Name" placeholder="Your name" />
       <div>
         <Field
           id="email"
           type="email"
-          label={t("email")}
-          placeholder={t("emailPlaceholder")}
+          label="Email"
+          placeholder="you@email.com"
         />
         <ValidationError
           prefix="Email"
@@ -56,14 +54,14 @@ function FormspreeForm() {
       </div>
       <div>
         <label htmlFor="message" className="mb-1.5 block text-sm font-medium">
-          {t("message")}
+          Message
         </label>
         <textarea
           id="message"
           name="message"
           required
           rows={5}
-          placeholder={t("messagePlaceholder")}
+          placeholder="Tell me how I can help…"
           className={fieldClass}
         />
         <ValidationError
@@ -77,7 +75,7 @@ function FormspreeForm() {
       {state.errors && (
         <p className="flex items-center gap-2 text-sm text-red-500">
           <AlertCircle className="h-4 w-4" />
-          {t("error")}
+          Something went wrong. Please try again or email me directly.
         </p>
       )}
 
@@ -86,7 +84,7 @@ function FormspreeForm() {
         disabled={state.submitting}
         className={buttonClasses({ size: "lg", className: "w-full sm:w-auto" })}
       >
-        {state.submitting ? t("sending") : t("send")}
+        {state.submitting ? "Sending…" : "Send message"}
       </button>
     </form>
   );
@@ -94,7 +92,6 @@ function FormspreeForm() {
 
 /** No Formspree id configured yet: a validated form that opens the mail client. */
 function MailtoForm() {
-  const t = useTranslations("Contact");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -110,22 +107,22 @@ function MailtoForm() {
     <form onSubmit={onSubmit} className="space-y-4" noValidate>
       <Field
         id="name"
-        label={t("name")}
-        placeholder={t("namePlaceholder")}
+        label="Name"
+        placeholder="Your name"
         value={name}
         onChange={setName}
       />
       <Field
         id="email"
         type="email"
-        label={t("email")}
-        placeholder={t("emailPlaceholder")}
+        label="Email"
+        placeholder="you@email.com"
         value={email}
         onChange={setEmail}
       />
       <div>
         <label htmlFor="message" className="mb-1.5 block text-sm font-medium">
-          {t("message")}
+          Message
         </label>
         <textarea
           id="message"
@@ -134,7 +131,7 @@ function MailtoForm() {
           rows={5}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder={t("messagePlaceholder")}
+          placeholder="Tell me how I can help…"
           className={fieldClass}
         />
       </div>
@@ -142,7 +139,7 @@ function MailtoForm() {
         type="submit"
         className={buttonClasses({ size: "lg", className: "w-full sm:w-auto" })}
       >
-        {t("send")}
+        Send message
       </button>
     </form>
   );

@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useTranslations } from "next-intl";
 import { Pause, Play, RotateCcw } from "lucide-react";
 
 const W = 560, H = 360, GRID = 50;
@@ -68,7 +67,6 @@ const toNet = (cx: number, cy: number): [number, number] =>
 
 // ── Component ──────────────────────────────────────────────────────────────
 export function NeuralNetDemo() {
-  const t = useTranslations("Math");
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [playing, setPlaying] = useState(false);
   const [loss, setLoss]   = useState<number | null>(null);
@@ -181,8 +179,11 @@ export function NeuralNetDemo() {
 
   return (
     <div className="rounded-xl border border-border bg-card p-6">
-      <h3 className="text-xl font-semibold">{t("nnTitle")}</h3>
-      <p className="mt-2 text-sm text-muted-foreground">{t("nnDescription")}</p>
+      <h3 className="text-xl font-semibold">Interactive neural classifier</h3>
+      <p className="mt-2 text-sm text-muted-foreground">
+        2→8→1 network (ReLU + sigmoid). Left-click to add class-A points, right-click for
+        class B. The network trains in real time and draws the live decision boundary.
+      </p>
       <canvas
         ref={canvasRef}
         width={W}
@@ -213,17 +214,19 @@ export function NeuralNetDemo() {
         <div className="flex flex-wrap gap-4 font-mono text-xs text-muted-foreground">
           <span className="flex items-center gap-1.5">
             <span className="inline-block h-2.5 w-2.5 rounded-full bg-accent" />
-            {t("nnClass0")}
+            Class A (left)
           </span>
           <span className="flex items-center gap-1.5">
             <span className="inline-block h-2.5 w-2.5 rounded-full bg-orange-500" />
-            {t("nnClass1")}
+            Class B (right)
           </span>
           {loss !== null && <span>loss: {loss.toFixed(4)}</span>}
         </div>
       </div>
       {count === 0 && (
-        <p className="mt-2 text-xs italic text-muted-foreground">{t("nnHint")}</p>
+        <p className="mt-2 text-xs italic text-muted-foreground">
+          Click the canvas to add points — training starts automatically.
+        </p>
       )}
     </div>
   );

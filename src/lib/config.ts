@@ -40,11 +40,8 @@ export const siteConfig = {
   // Your headshot. Drop the file at public/images/avatar.png — set to "" to hide.
   avatar: "",
 
-  // Downloadable CVs. Drop the PDFs in /public/cv/ (see CONTENT_GUIDE.md).
-  cv: {
-    es: "/cv/CV_Hugo_Gomez_Garcia_ESP.pdf",
-    en: "/cv/CV_Hugo_Gomez_Garcia_EN.pdf",
-  },
+  // Downloadable CV. Drop the PDF in /public/cv/ (see CONTENT_GUIDE.md).
+  cv: "/cv/CV_Hugo_Gomez_Garcia_EN.pdf",
 
   // Formspree form id (https://formspree.io). Set NEXT_PUBLIC_FORM in .env.local
   // and in Vercel. While empty, the contact form falls back to a mailto: link.

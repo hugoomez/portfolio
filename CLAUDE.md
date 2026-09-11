@@ -2,15 +2,20 @@
 
 # Portfolio — working notes for Claude
 
-Bilingual (es/en) Next.js 16 + React 19 + Tailwind v4 portfolio for Hugo Gómez
+English-only Next.js 16 + React 19 + Tailwind v4 portfolio for Hugo Gómez
 (CS + Mathematics, Universidad de Oviedo). Content is real, not placeholders —
 this file documents how the site is actually organized so edits can be made
 straight away without re-deriving structure each session.
 
-Stack quick facts: TypeScript strict, `next-intl` for i18n, `next-themes` for
-dark mode, Tailwind v4 CSS-first `@theme`, Formspree contact form, deployed on
-Vercel (auto-deploy on push to `main`). Package manager is **pnpm**
-(`pnpm dev`, `pnpm build`, `pnpm lint`) — there is no `package-lock.json`.
+Stack quick facts: TypeScript strict, `next-themes` for dark mode, Tailwind v4
+CSS-first `@theme`, Formspree contact form, deployed on Vercel (auto-deploy on
+push to `main`). Package manager is **pnpm** (`pnpm dev`, `pnpm build`,
+`pnpm lint`) — there is no `package-lock.json`.
+
+The site used to be bilingual (es/en) via `next-intl`; that was removed —
+English is now the only language. All content fields are plain `string`s, not
+`{ es, en }` objects, and there's no locale routing (`/en` prefix, locale
+switcher, etc.). Don't reintroduce any of that unless explicitly asked.
 
 ## Adding or editing a project (the most common task)
 
@@ -19,12 +24,12 @@ entry is a case study with these fields (see the `Project` interface at the
 top of the file for the authoritative list):
 
 - `slug` — URL id → `/projects/<slug>`.
-- `title`, `summary`, `description` — `{ es, en }`. `description` is the long
+- `title`, `summary`, `description` — plain strings. `description` is the long
   case-study paragraph.
 - `problem` / `solution` — optional two-part narrative rendered as separate
-  sections on the detail page ("El problema" / "La solución"). Existing
+  sections on the detail page ("The problem" / "The solution"). Existing
   entries are written in first person, past tense, technical but readable
-  ("Entrené una CNN...", "Diseñé una arquitectura de dos niveles..."). Match
+  ("I trained a CNN...", "I designed a two-tier architecture..."). Match
   that voice for new projects.
 - `tech` — array of strings, shown as badges (card shows only the first 4).
 - `repoUrl` — GitHub link. Omit or comment out if there's no public repo yet.
@@ -42,10 +47,13 @@ top of the file for the authoritative list):
   `<name>-demo.mp4` or `demo-<name>.mp4` clip is the established pattern.
   Images render with `object-contain` (not `cover`), so screenshots don't get
   cropped — no strict aspect ratio requirement, just avoid huge file sizes.
-- `award` — `{ label: {es,en}, event?: {es,en} }`, renders a trophy badge on
+- `award` — `{ label: string, event?: string }`, renders a trophy badge on
   the card and header of the detail page. Only add for real wins/finalist
   results.
 - `featured: true` — shows the project on the home page.
+- `research: true` — shows a "Research" badge (flask icon) on the card and
+  detail page. Use for projects centered on a research paper / scientific
+  contribution rather than a shipped app or tool (e.g. `rag-hallucination-detector`).
 - `date` — ISO `YYYY-MM-DD`. Projects are sorted **descending by date**
   everywhere (`getAllProjects()`), so this controls display order, not just
   metadata. For projects still in progress, use the date you actually
@@ -64,24 +72,11 @@ are all generated from this one file.
 
 | What | File |
 | --- | --- |
-| Name, email, socials, CV paths, Formspree id | `src/lib/config.ts` |
+| Name, email, socials, CV path, Formspree id | `src/lib/config.ts` |
 | Skills (grouped by category) | `src/data/skills.ts` |
 | Education / experience timeline | `src/data/experience.ts` |
-| CV PDFs | `public/cv/CV_Hugo_Gomez_Garcia_{ESP,EN}.pdf` |
-| UI strings (buttons, section titles, etc.) | `src/messages/es.json` / `en.json` |
-
-## i18n conventions
-
-- Every piece of user-facing content data uses the `LocalizedText = { es, en }`
-  shape (defined in `src/content/projects.ts`, reused by `experience.ts`).
-  Fixed UI strings (buttons, nav, empty states) go in
-  `src/messages/{es,en}.json` instead, under matching namespaces — **always
-  add/update the same key in both files**, never just one.
-- Spanish is the default locale, served unprefixed (`/`, `/projects`);
-  English is prefixed (`/en`, `/en/projects`) — see `src/i18n/routing.ts`
-  (`localePrefix: "as-needed"`).
-- `pick(localizedField, locale)` from `src/lib/utils.ts` is the helper used
-  everywhere to select the right string.
+| CV PDF | `public/cv/CV_Hugo_Gomez_Garcia_EN.pdf` |
+| UI strings (buttons, section titles, etc.) | inline in each component/page — no central strings file |
 
 ## Routes / nav
 

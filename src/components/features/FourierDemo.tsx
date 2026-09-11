@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { useTranslations } from "next-intl";
 import { Play, Pause, RotateCcw } from "lucide-react";
 import { Formula } from "./MathFormula";
 
@@ -29,7 +28,6 @@ function rgba(rgb: string, a: number): string {
 }
 
 export function FourierDemo() {
-  const t = useTranslations("Math");
   const [terms, setTerms] = useState(5);
   const [playing, setPlaying] = useState(true);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -175,8 +173,12 @@ export function FourierDemo() {
 
   return (
     <div className="rounded-xl border border-border bg-card p-6">
-      <h3 className="text-xl font-semibold">{t("fourierTitle")}</h3>
-      <p className="mt-2 text-sm text-muted-foreground">{t("fourierDescription")}</p>
+      <h3 className="text-xl font-semibold">Fourier series of a square wave</h3>
+      <p className="mt-2 text-sm text-muted-foreground">
+        A square wave is approximated by summing odd harmonics. Increase the number of
+        terms and watch the sum converge to the target signal (with Gibbs ringing at the
+        jumps).
+      </p>
 
       <div className="mt-4 text-sm">
         <Formula math={"f(x) = \\frac{4}{\\pi} \\sum_{k=1}^{n} \\frac{\\sin((2k-1)x)}{2k-1}"} />
@@ -209,7 +211,7 @@ export function FourierDemo() {
         </button>
         <label className="flex flex-1 flex-col gap-1">
           <span className="font-mono text-xs text-muted-foreground">
-            {t("terms")}: {terms}
+            Number of terms (n): {terms}
           </span>
           <input
             type="range"

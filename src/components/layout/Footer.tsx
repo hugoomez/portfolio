@@ -1,16 +1,14 @@
-import { useTranslations } from "next-intl";
 import { Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
 import { siteConfig } from "@/lib/config";
 
 export function Footer() {
-  const t = useTranslations("Footer");
   const year = new Date().getFullYear();
 
   const links = [
-    { href: siteConfig.social.github, label: t("github"), Icon: GithubIcon },
-    { href: siteConfig.social.linkedin, label: t("linkedin"), Icon: LinkedinIcon },
-    { href: `mailto:${siteConfig.email}`, label: t("email"), Icon: Mail },
+    { href: siteConfig.social.github, label: "GitHub", Icon: GithubIcon },
+    { href: siteConfig.social.linkedin, label: "LinkedIn", Icon: LinkedinIcon },
+    { href: `mailto:${siteConfig.email}`, label: "Email", Icon: Mail },
   ].filter((l) => l.href && !l.href.endsWith("undefined"));
 
   return (
@@ -18,9 +16,9 @@ export function Footer() {
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-5 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-8">
         <div className="text-sm text-muted-foreground">
           <p>
-            © {year} {siteConfig.name}. {t("rights")}
+            © {year} {siteConfig.name}. All rights reserved.
           </p>
-          <p className="mt-1">{t("builtWith")}</p>
+          <p className="mt-1">Built with Next.js, TypeScript and Tailwind CSS.</p>
         </div>
         <div className="flex items-center gap-3">
           {links.map(({ href, label, Icon }) => (

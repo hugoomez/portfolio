@@ -1,4 +1,4 @@
-/** Skills grouped by category. Display labels are localized under "Skills" in messages. */
+/** Skills grouped by category. */
 
 export const skills = {
   Languages: ["Python", "C++", "SQL", "Java", "C"],
@@ -9,3 +9,9 @@ export const skills = {
 export type SkillCategory = keyof typeof skills;
 
 export const skillCategories = Object.keys(skills) as SkillCategory[];
+
+export const skillCategoryLabels: Record<SkillCategory, string> = {
+  Languages: "Languages",
+  MachineLearning: "Machine Learning",
+  Tools: "Tools",
+};

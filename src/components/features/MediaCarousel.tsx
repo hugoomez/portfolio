@@ -3,19 +3,15 @@
 import { useState, useCallback } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useLocale } from "next-intl";
 import type { MediaItem } from "@/content/projects";
-import { pick } from "@/lib/utils";
 
 function MediaSlide({
   item,
   title,
-  locale,
   priority,
 }: {
   item: MediaItem;
   title: string;
-  locale: string;
   priority: boolean;
 }) {
   if (item.type === "image") {
@@ -23,7 +19,7 @@ function MediaSlide({
       <div className="relative aspect-[16/9] w-full bg-muted/40">
         <Image
           src={item.src}
-          alt={item.alt ? pick(item.alt, locale) : title}
+          alt={item.alt ?? title}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
           priority={priority}
@@ -67,7 +63,6 @@ export function MediaCarousel({
   title: string;
   priority?: boolean;
 }) {
-  const locale = useLocale();
   const [current, setCurrent] = useState(0);
   const total = items.length;
 
@@ -88,7 +83,6 @@ export function MediaCarousel({
         <MediaSlide
           item={items[current]}
           title={title}
-          locale={locale}
           priority={priority && current === 0}
         />
 
@@ -96,14 +90,14 @@ export function MediaCarousel({
           <>
             <button
               onClick={prev}
-              aria-label="Anterior"
+              aria-label="Previous"
               className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-background/80 p-3 shadow-md backdrop-blur-sm transition hover:bg-background"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
             <button
               onClick={next}
-              aria-label="Siguiente"
+              aria-label="Next"
               className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-background/80 p-3 shadow-md backdrop-blur-sm transition hover:bg-background"
             >
               <ChevronRight className="h-5 w-5" />
@@ -118,7 +112,7 @@ export function MediaCarousel({
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              aria-label={`Ir a elemento ${i + 1} de ${total}`}
+              aria-label={`Go to item ${i + 1} of ${total}`}
               className={`h-1.5 rounded-full transition-all duration-200 ${
                 i === current
                   ? "w-5 bg-accent"

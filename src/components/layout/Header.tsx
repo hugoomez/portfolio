@@ -1,23 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import { Link, usePathname } from "@/i18n/navigation";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./ThemeToggle";
-import { LocaleSwitcher } from "./LocaleSwitcher";
 
 const navItems = [
-  { href: "/", key: "home" },
-  { href: "/projects", key: "projects" },
-  { href: "/about", key: "about" },
-  { href: "/contact", key: "contact" },
+  { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ] as const;
 
 export function Header() {
-  const t = useTranslations("Nav");
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -50,17 +48,16 @@ export function Header() {
                   : "text-muted-foreground hover:text-foreground",
               )}
             >
-              {t(item.key)}
+              {item.label}
             </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-2">
-          <LocaleSwitcher />
           <ThemeToggle />
           <button
             type="button"
-            aria-label={open ? t("closeMenu") : t("openMenu")}
+            aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
             className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-card md:hidden"
@@ -87,7 +84,7 @@ export function Header() {
                     : "text-muted-foreground hover:bg-muted hover:text-foreground",
                 )}
               >
-                {t(item.key)}
+                {item.label}
               </Link>
             ))}
           </div>

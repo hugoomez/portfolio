@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState, useEffect, useCallback, useRef } from "react";
-import { useTranslations } from "next-intl";
 import { Play, Pause, RotateCcw, StepForward } from "lucide-react";
 import { Formula } from "./MathFormula";
 
@@ -20,7 +19,6 @@ const xFromSvg = (svgX: number) =>
   Math.max(X_MIN, Math.min(X_MAX, X_MIN + ((svgX - PAD) / (W - 2 * PAD)) * (X_MAX - X_MIN)));
 
 export function GradientDescentDemo() {
-  const t = useTranslations("Math");
   const [eta, setEta]           = useState(0.3);
   const [x0,  setX0]            = useState(-3);
   const [step, setStep]         = useState(0);
@@ -42,9 +40,12 @@ export function GradientDescentDemo() {
 
   // Auto-play
   useEffect(() => {
-    if (!playing) return;
-    if (step >= MAX_STEPS) { setPlaying(false); return; }
-    const id = setTimeout(() => setStep((s) => s + 1), 110);
+    if (!playing || step >= MAX_STEPS) return;
+    const id = setTimeout(() => {
+      const next = step + 1;
+      setStep(next);
+      if (next >= MAX_STEPS) setPlaying(false);
+    }, 110);
     return () => clearTimeout(id);
   }, [playing, step]);
 
@@ -87,8 +88,11 @@ export function GradientDescentDemo() {
 
   return (
     <div className="rounded-xl border border-border bg-card p-6">
-      <h3 className="text-xl font-semibold">{t("descentTitle")}</h3>
-      <p className="mt-2 text-sm text-muted-foreground">{t("descentDescription")}</p>
+      <h3 className="text-xl font-semibold">Gradient descent, live</h3>
+      <p className="mt-2 text-sm text-muted-foreground">
+        Gradient descent minimises a function by stepping against its gradient. Tweak the
+        learning rate (η) and the starting point to watch it converge — or diverge.
+      </p>
 
       <div className="mt-4 text-sm">
         <Formula math={"x_{n+1} = x_n - \\eta\\, f'(x_n), \\quad f(x) = (x-1)^2 + 0.5"} />
@@ -165,7 +169,7 @@ export function GradientDescentDemo() {
         <svg viewBox={`0 0 ${W} ${CH}`} className="mt-1.5 w-full rounded-lg bg-muted/20">
           <text x={PAD} y={13} fontSize={9}
             fill="var(--color-muted-foreground)" fontFamily="monospace">
-            {t("convergence")}
+            convergence of f(x)
           </text>
           {/* Fill under curve */}
           <path
@@ -215,12 +219,12 @@ export function GradientDescentDemo() {
 
         <div className="grid flex-1 gap-3 sm:grid-cols-2">
           <Slider
-            label={`${t("learningRate")}: ${eta.toFixed(2)}`}
+            label={`Learning rate (η): ${eta.toFixed(2)}`}
             min={0.01} max={1.05} step={0.01} value={eta}
             onChange={(v) => { setEta(v); setStep(0); setPlaying(false); }}
           />
           <Slider
-            label={`${t("startPoint")}: ${x0.toFixed(1)}`}
+            label={`Start point (x₀): ${x0.toFixed(1)}`}
             min={-4} max={4} step={0.1} value={x0}
             onChange={(v) => { setX0(v); setStep(0); setPlaying(false); }}
           />
@@ -230,7 +234,7 @@ export function GradientDescentDemo() {
       <p className="mt-3 font-mono text-xs text-muted-foreground">
         n = {step} · x = {xn.toFixed(4)} · f(x) = {yn.toFixed(4)}
         {eta >= 1 && "  ·  η ≥ 1 → diverge / oscillate"}
-        {step === 0 && `  ·  ${t("clickHint")}`}
+        {step === 0 && "  ·  click the chart to set x₀"}
       </p>
     </div>
   );

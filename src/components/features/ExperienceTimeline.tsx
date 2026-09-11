@@ -1,10 +1,6 @@
-import { useLocale } from "next-intl";
 import { experience } from "@/data/experience";
-import { pick } from "@/lib/utils";
 
 export function ExperienceTimeline() {
-  const locale = useLocale();
-
   return (
     <ol className="relative border-l border-border">
       {experience.map((item, i) => (
@@ -13,15 +9,9 @@ export function ExperienceTimeline() {
           <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
             {item.period}
           </p>
-          <h3 className="mt-1 text-lg font-semibold">
-            {pick(item.role, locale)}
-          </h3>
-          <p className="text-sm font-medium text-accent">
-            {pick(item.organization, locale)}
-          </p>
-          <p className="mt-2 text-sm text-muted-foreground">
-            {pick(item.description, locale)}
-          </p>
+          <h3 className="mt-1 text-lg font-semibold">{item.role}</h3>
+          <p className="text-sm font-medium text-accent">{item.organization}</p>
+          <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
         </li>
       ))}
     </ol>

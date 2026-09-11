@@ -1,32 +1,18 @@
 import Link from "next/link";
+import { Container } from "@/components/ui/Container";
+import { buttonClasses } from "@/components/ui/Button";
 
-// Global fallback for paths that don't match any locale segment.
-// Must provide its own <html>/<body> because the only root layout lives
-// under [locale]/layout.tsx.
-export default function GlobalNotFound() {
+export default function NotFound() {
   return (
-    <html lang="es">
-      <body
-        style={{
-          display: "flex",
-          minHeight: "100vh",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          fontFamily: "system-ui, sans-serif",
-          textAlign: "center",
-          gap: "1rem",
-          margin: 0,
-        }}
-      >
-        <h1 style={{ fontSize: "2rem", margin: 0 }}>404 — Page not found</h1>
-        <p style={{ color: "#666", margin: 0 }}>
-          The page you&apos;re looking for doesn&apos;t exist.
-        </p>
-        <Link href="/" style={{ color: "#6d49d6" }}>
-          Back to home
-        </Link>
-      </body>
-    </html>
+    <Container className="flex min-h-[60vh] flex-col items-center justify-center py-20 text-center">
+      <p className="font-mono text-6xl font-bold text-accent">404</p>
+      <h1 className="mt-4 text-2xl font-semibold">Page not found</h1>
+      <p className="mt-2 max-w-md text-muted-foreground">
+        The page you&apos;re looking for doesn&apos;t exist or has moved.
+      </p>
+      <Link href="/" className={buttonClasses({ className: "mt-6" })}>
+        Back to home
+      </Link>
+    </Container>
   );
 }

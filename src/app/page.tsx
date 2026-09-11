@@ -1,7 +1,5 @@
-import { setRequestLocale } from "next-intl/server";
-import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { buttonClasses } from "@/components/ui/Button";
 import { Hero } from "@/components/features/Hero";
@@ -10,18 +8,7 @@ import { SkillsGrid } from "@/components/features/SkillsGrid";
 import { getFeaturedProjects } from "@/content/projects";
 import { siteConfig } from "@/lib/config";
 
-export default async function HomePage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  setRequestLocale(locale);
-  return <HomeContent />;
-}
-
-function HomeContent() {
-  const t = useTranslations("Home");
+export default function HomePage() {
   const featured = getFeaturedProjects();
 
   const jsonLd = {
@@ -50,8 +37,8 @@ function HomeContent() {
 
       <Section
         eyebrow="01"
-        title={t("featuredTitle")}
-        subtitle={t("featuredSubtitle")}
+        title="Featured projects"
+        subtitle="A selection of my best work, in case-study form."
       >
         <div className="grid gap-6 sm:grid-cols-2">
           {featured.map((project, i) => (
@@ -63,7 +50,7 @@ function HomeContent() {
             href="/projects"
             className={buttonClasses({ variant: "secondary" })}
           >
-            {t("allProjects")}
+            View all projects
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -71,8 +58,8 @@ function HomeContent() {
 
       <Section
         eyebrow="02"
-        title={t("skillsTitle")}
-        subtitle={t("skillsSubtitle")}
+        title="Technologies"
+        subtitle="Tools I work with day to day."
         className="border-t border-border"
       >
         <SkillsGrid />

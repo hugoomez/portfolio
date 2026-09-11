@@ -27,10 +27,10 @@ The production URL and Formspree id come from environment variables (see §6).
 ## 2. Projects — `src/content/projects.ts` (the core)
 
 Replace the three placeholder entries with **3–5 real projects**. Each is a
-bilingual, fully-typed case study:
+fully-typed case study:
 
 - `slug` — URL id, e.g. `weather-dashboard` → `/projects/weather-dashboard`
-- `title`, `summary`, `description` — `{ es, en }` text
+- `title`, `summary`, `description` — plain text
 - `problem`, `solution` — the case-study narrative (problem → how you solved it)
 - `tech` — array of technologies
 - `repoUrl`, `demoUrl` — link your GitHub repo and a live demo (recruiters love demos)
@@ -58,12 +58,8 @@ bilingual, fully-typed case study:
 
 ## 5. CV (PDF)
 
-Replace the placeholders in `public/cv/`:
-
-- `cv-es.pdf` — Spanish convention: 1 page, with photo.
-- `cv-en.pdf` — International: no photo, no date of birth.
-
-The site links the right one per locale automatically.
+Replace the placeholder in `public/cv/CV_Hugo_Gomez_Garcia_EN.pdf` and point
+`siteConfig.cv` at it if you rename the file.
 
 ---
 

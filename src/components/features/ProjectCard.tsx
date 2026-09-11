@@ -1,11 +1,9 @@
-import { useLocale, useTranslations } from "next-intl";
-import { ExternalLink, ArrowRight, Lock, Trophy } from "lucide-react";
+import Link from "next/link";
+import { ExternalLink, ArrowRight, Lock, Trophy, FlaskConical } from "lucide-react";
 import { GithubIcon } from "@/components/ui/BrandIcons";
-import { Link } from "@/i18n/navigation";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { ProjectCover } from "./ProjectCover";
-import { pick } from "@/lib/utils";
 import type { Project } from "@/content/projects";
 
 export function ProjectCard({
@@ -15,9 +13,7 @@ export function ProjectCard({
   project: Project;
   priority?: boolean;
 }) {
-  const locale = useLocale();
-  const t = useTranslations("Projects");
-  const title = pick(project.title, locale);
+  const title = project.title;
 
   const coverImage =
     project.media?.find((m) => m.type === "image")?.src ??
@@ -38,7 +34,7 @@ export function ProjectCard({
         {project.award && (
           <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-amber-500/90 px-2.5 py-1 text-xs font-semibold text-white shadow-md backdrop-blur-sm">
             <Trophy className="h-3 w-3" />
-            {pick(project.award.label, locale)}
+            {project.award.label}
           </div>
         )}
       </div>
@@ -46,14 +42,18 @@ export function ProjectCard({
       <div className="flex flex-1 flex-col p-5">
         <div className="mb-2 flex items-center gap-2">
           {project.featured && (
+            <Badge className="border-accent/40 text-accent">Featured</Badge>
+          )}
+          {project.research && (
             <Badge className="border-accent/40 text-accent">
-              {t("featured")}
+              <FlaskConical className="mr-1 h-3 w-3" />
+              Research
             </Badge>
           )}
           {project.privateRepo && (
             <Badge className="border-muted-foreground/30 text-muted-foreground">
               <Lock className="mr-1 h-3 w-3" />
-              {t("privateRepo")}
+              Private code
             </Badge>
           )}
         </div>
@@ -68,7 +68,7 @@ export function ProjectCard({
         </h3>
 
         <p className="mt-2 flex-1 text-sm text-muted-foreground">
-          {pick(project.summary, locale)}
+          {project.summary}
         </p>
 
         <div className="mt-4 flex flex-wrap gap-1.5">
@@ -82,13 +82,13 @@ export function ProjectCard({
             href={`/projects/${project.slug}`}
             className="inline-flex items-center gap-1 font-medium text-accent hover:underline"
           >
-            {t("viewCaseStudy")}
+            View case study
             <ArrowRight className="h-3.5 w-3.5" />
           </Link>
           <div className="flex items-center gap-3 text-muted-foreground">
             {project.privateRepo ? (
               <span
-                title={t("privateRepoTitle")}
+                title="The repository for this project is private"
                 className="flex items-center gap-1 text-muted-foreground/50"
               >
                 <Lock className="h-4 w-4" />
@@ -99,7 +99,7 @@ export function ProjectCard({
                   href={project.repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`${t("repo")} — ${title}`}
+                  aria-label={`Code — ${title}`}
                   className="transition-colors hover:text-foreground"
                 >
                   <GithubIcon className="h-4 w-4" />
@@ -111,7 +111,7 @@ export function ProjectCard({
                 href={project.demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${t("demo")} — ${title}`}
+                aria-label={`Live demo — ${title}`}
                 className="transition-colors hover:text-foreground"
               >
                 <ExternalLink className="h-4 w-4" />

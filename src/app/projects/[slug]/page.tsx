@@ -1,58 +1,47 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ArrowLeft, ExternalLink, FileText, Lock, Trophy } from "lucide-react";
+import Link from "next/link";
+import { ArrowLeft, ExternalLink, FileText, FlaskConical, Lock, Trophy } from "lucide-react";
 import { GithubIcon } from "@/components/ui/BrandIcons";
-import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { buttonClasses } from "@/components/ui/Button";
 import { ProjectCover } from "@/components/features/ProjectCover";
 import { MediaCarousel } from "@/components/features/MediaCarousel";
-import { routing } from "@/i18n/routing";
 import { getAllProjects, getProjectBySlug } from "@/content/projects";
-import { pick } from "@/lib/utils";
 
 export function generateStaticParams() {
-  return routing.locales.flatMap((locale) =>
-    getAllProjects().map((p) => ({ locale, slug: p.slug })),
-  );
+  return getAllProjects().map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string; slug: string }>;
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { locale, slug } = await params;
+  const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) return {};
-  const title = pick(project.title, locale);
-  const description = pick(project.summary, locale);
   return {
-    title,
-    description,
+    title: project.title,
+    description: project.summary,
     alternates: {
-      canonical: `${locale === "en" ? "/en" : ""}/projects/${slug}`,
+      canonical: `/projects/${slug}`,
     },
-    openGraph: { title, description, type: "article" },
+    openGraph: { title: project.title, description: project.summary, type: "article" },
   };
 }
 
 export default async function ProjectDetailPage({
   params,
 }: {
-  params: Promise<{ locale: string; slug: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { locale, slug } = await params;
-  setRequestLocale(locale);
-
+  const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 
-  const t = await getTranslations({ locale, namespace: "Projects" });
-  const title = pick(project.title, locale);
-
+  const title = project.title;
   const hasMedia = project.media && project.media.length > 0;
 
   return (
@@ -63,28 +52,38 @@ export default async function ProjectDetailPage({
           className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeft className="h-4 w-4" />
-          {t("backToProjects")}
+          Back to projects
         </Link>
 
         <header className="mt-6">
-          {project.award && (
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-sm font-medium text-amber-600 dark:text-amber-400">
-              <Trophy className="h-4 w-4" />
-              <span>{pick(project.award.label, locale)}</span>
-              {project.award.event && (
-                <>
-                  <span className="text-amber-500/50">·</span>
-                  <span className="font-normal text-muted-foreground">
-                    {pick(project.award.event, locale)}
-                  </span>
-                </>
+          {(project.research || project.award) && (
+            <div className="mb-4 flex flex-wrap items-center gap-2">
+              {project.research && (
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent">
+                  <FlaskConical className="h-4 w-4" />
+                  Research
+                </span>
+              )}
+              {project.award && (
+                <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-sm font-medium text-amber-600 dark:text-amber-400">
+                  <Trophy className="h-4 w-4" />
+                  <span>{project.award.label}</span>
+                  {project.award.event && (
+                    <>
+                      <span className="text-amber-500/50">·</span>
+                      <span className="font-normal text-muted-foreground">
+                        {project.award.event}
+                      </span>
+                    </>
+                  )}
+                </div>
               )}
             </div>
           )}
 
           <h1 className="text-3xl font-bold sm:text-4xl">{title}</h1>
           <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
-            {pick(project.summary, locale)}
+            {project.summary}
           </p>
 
           <div className="mt-5 flex flex-wrap items-center gap-3">
@@ -96,7 +95,7 @@ export default async function ProjectDetailPage({
                 className={buttonClasses({ size: "sm" })}
               >
                 <ExternalLink className="h-4 w-4" />
-                {t("demo")}
+                Live demo
               </a>
             )}
             {project.paperUrl && (
@@ -107,13 +106,13 @@ export default async function ProjectDetailPage({
                 className={buttonClasses({ variant: "secondary", size: "sm" })}
               >
                 <FileText className="h-4 w-4" />
-                {t("paper")}
+                Preprint
               </a>
             )}
             {project.privateRepo ? (
               <span className={buttonClasses({ variant: "secondary", size: "sm" })}>
                 <Lock className="h-4 w-4" />
-                {t("privateRepo")}
+                Private code
               </span>
             ) : (
               project.repoUrl && (
@@ -124,7 +123,7 @@ export default async function ProjectDetailPage({
                   className={buttonClasses({ variant: "secondary", size: "sm" })}
                 >
                   <GithubIcon className="h-4 w-4" />
-                  {t("repo")}
+                  Code
                 </a>
               )
             )}
@@ -148,32 +147,26 @@ export default async function ProjectDetailPage({
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_240px]">
           <div className="max-w-2xl space-y-8 leading-relaxed">
-            <p className="text-lg text-foreground/90">
-              {pick(project.description, locale)}
-            </p>
+            <p className="text-lg text-foreground/90">{project.description}</p>
 
             {project.problem && (
               <section>
-                <h2 className="text-xl font-semibold">{t("theProblem")}</h2>
-                <p className="mt-2 text-muted-foreground">
-                  {pick(project.problem, locale)}
-                </p>
+                <h2 className="text-xl font-semibold">The problem</h2>
+                <p className="mt-2 text-muted-foreground">{project.problem}</p>
               </section>
             )}
 
             {project.solution && (
               <section>
-                <h2 className="text-xl font-semibold">{t("theSolution")}</h2>
-                <p className="mt-2 text-muted-foreground">
-                  {pick(project.solution, locale)}
-                </p>
+                <h2 className="text-xl font-semibold">The solution</h2>
+                <p className="mt-2 text-muted-foreground">{project.solution}</p>
               </section>
             )}
           </div>
 
           <aside className="lg:border-l lg:border-border lg:pl-8">
             <h2 className="font-mono text-sm uppercase tracking-widest text-accent">
-              {t("techStack")}
+              Tech stack
             </h2>
             <ul className="mt-3 flex flex-wrap gap-2">
               {project.tech.map((tech) => (

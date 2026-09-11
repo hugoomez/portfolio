@@ -1,16 +1,12 @@
 import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
+import Link from "next/link";
 import { ArrowRight, Download } from "lucide-react";
-import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/ui/Container";
 import { buttonClasses } from "@/components/ui/Button";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
 import { siteConfig } from "@/lib/config";
 
 export function Hero() {
-  const t = useTranslations("Hero");
-  const locale = useLocale();
-  const cvHref = locale === "en" ? siteConfig.cv.en : siteConfig.cv.es;
   const hasAvatar = Boolean(siteConfig.avatar);
 
   return (
@@ -48,45 +44,39 @@ export function Hero() {
               </div>
             )}
 
-            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 font-mono text-xs text-muted-foreground">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-              </span>
-              {t("availability")}
-            </p>
-
             <h1 className="text-4xl font-bold leading-tight sm:text-6xl">
-              {t("greeting")}{" "}
+              Hi, I&apos;m{" "}
               <span className="text-accent">{siteConfig.name}</span>
             </h1>
 
             <p className="mt-4 text-xl font-medium text-foreground/90 sm:text-2xl">
-              {t("tagline")}
+              Computer Science &amp; Mathematics double-degree student
             </p>
 
             <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-              {t("intro")}
+              I build software on a solid mathematical foundation. I&apos;m
+              drawn to artificial intelligence, machine learning, and
+              shipping polished systems end to end.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link href="/projects" className={buttonClasses({ size: "lg" })}>
-                {t("viewProjects")}
+                View projects
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <a
-                href={cvHref}
+                href={siteConfig.cv}
                 download
                 className={buttonClasses({ variant: "secondary", size: "lg" })}
               >
                 <Download className="h-4 w-4" />
-                {t("downloadCv")}
+                Download CV
               </a>
               <Link
                 href="/contact"
                 className={buttonClasses({ variant: "ghost", size: "lg" })}
               >
-                {t("contact")}
+                Contact
               </Link>
             </div>
 
