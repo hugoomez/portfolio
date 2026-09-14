@@ -229,6 +229,7 @@ export const projects: Project[] = [
     solution:
       "I built Kairo as a pipeline instead of a chat: literature synthesis feeds hypothesis generation, which goes through adversarial critique before being locked into a preregistration — prediction, metric, and decision threshold frozen before any code runs — then into real experiment execution with a full reproducibility manifest, then through a validity gate that can refuse to produce a verdict at all, and finally into confidence updating that only promotes a hypothesis to 'confirmed' after an independent replication. I validated it end-to-end on a known-answer case — a well-documented ML phenomenon I deliberately didn't name to the tool, so its search and reasoning had to rediscover it independently. The literature search connected two distinct bodies of research the prepared answer key hadn't anticipated; the critique pipeline caught and refuted a plausible-but-false hypothesis, then refined it into a genuinely testable claim through a real multi-round loop; and two real GPU experiments run on Kaggle were both correctly flagged as invalid by the integrity checks instead of producing a false verdict, even after the compute cost had already been spent — that refusal to fabricate a conclusion under real pressure was the most important result of the whole evaluation.",
     tech: ["Claude Code", "Claude Agent SDK", "Obsidian", "MCP", "Python"],
+    image: "/images/projects/kairo.png",
     repoUrl: "https://github.com/hugoomez/kairo",
     featured: true,
     date: "2026-09-14",
