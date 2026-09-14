@@ -31,10 +31,20 @@ export function ProjectCard({
           />
         </Link>
 
-        {project.award && (
-          <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-amber-500/90 px-2.5 py-1 text-xs font-semibold text-white shadow-md backdrop-blur-sm">
-            <Trophy className="h-3 w-3" />
-            {project.award.label}
+        {(project.award || project.research) && (
+          <div className="absolute left-3 top-3 flex flex-col items-start gap-2">
+            {project.award && (
+              <div className="flex items-center gap-1.5 rounded-full bg-amber-500/90 px-2.5 py-1 text-xs font-semibold text-white shadow-md backdrop-blur-sm">
+                <Trophy className="h-3 w-3" />
+                {project.award.label}
+              </div>
+            )}
+            {project.research && (
+              <div className="flex items-center gap-1.5 rounded-full bg-accent/90 px-2.5 py-1 text-xs font-semibold text-accent-foreground shadow-md backdrop-blur-sm">
+                <FlaskConical className="h-3 w-3" />
+                Research
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -43,12 +53,6 @@ export function ProjectCard({
         <div className="mb-2 flex items-center gap-2">
           {project.featured && (
             <Badge className="border-accent/40 text-accent">Featured</Badge>
-          )}
-          {project.research && (
-            <Badge className="border-accent/40 text-accent">
-              <FlaskConical className="mr-1 h-3 w-3" />
-              Research
-            </Badge>
           )}
           {project.privateRepo && (
             <Badge className="border-muted-foreground/30 text-muted-foreground">
