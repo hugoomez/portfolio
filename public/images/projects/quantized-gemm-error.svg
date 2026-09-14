@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1500" width="2400" height="1500">
+  <defs>
+    <linearGradient id="cellA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7a2d6e"/>
+      <stop offset="100%" stop-color="#e0447e"/>
+    </linearGradient>
+    <linearGradient id="cellB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e0447e"/>
+      <stop offset="100%" stop-color="#f5a83c"/>
+    </linearGradient>
+    <linearGradient id="cellC" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5a83c"/>
+      <stop offset="100%" stop-color="#fbe19b"/>
+    </linearGradient>
+    <linearGradient id="cellD" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7a2d6e"/>
+      <stop offset="100%" stop-color="#f5a83c"/>
+    </linearGradient>
+    <radialGradient id="emeraldGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0e9f6e" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#0e9f6e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="coralGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ef6a4c" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ef6a4c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7c6ff0" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#7c6ff0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="0" y="0" width="2400" height="1500" fill="#0a0d16"/>
+  <circle cx="2050" cy="680" r="480" fill="url(#emeraldGlow)"/>
+
+  <!-- ambient dots -->
+  <g>
+    <circle cx="180" cy="150" r="3" fill="#2dd4a7" opacity="0.5"/>
+    <circle cx="430" cy="220" r="2" fill="#f2b34d" opacity="0.4"/>
+    <circle cx="650" cy="120" r="3" fill="#c77b93" opacity="0.55"/>
+    <circle cx="950" cy="180" r="2" fill="#2dd4a7" opacity="0.45"/>
+    <circle cx="1250" cy="140" r="3" fill="#f2b34d" opacity="0.5"/>
+    <circle cx="1550" cy="200" r="2" fill="#c77b93" opacity="0.4"/>
+    <circle cx="1850" cy="150" r="3" fill="#2dd4a7" opacity="0.55"/>
+    <circle cx="2150" cy="220" r="2" fill="#f2b34d" opacity="0.45"/>
+    <circle cx="2300" cy="350" r="3" fill="#c77b93" opacity="0.5"/>
+    <circle cx="120" cy="1000" r="2" fill="#f2b34d" opacity="0.4"/>
+    <circle cx="380" cy="1100" r="3" fill="#2dd4a7" opacity="0.5"/>
+    <circle cx="700" cy="1050" r="2" fill="#c77b93" opacity="0.45"/>
+    <circle cx="1050" cy="1150" r="3" fill="#2dd4a7" opacity="0.4"/>
+    <circle cx="1650" cy="1080" r="2" fill="#f2b34d" opacity="0.5"/>
+    <circle cx="1950" cy="1000" r="3" fill="#c77b93" opacity="0.45"/>
+    <circle cx="2250" cy="1100" r="2" fill="#2dd4a7" opacity="0.5"/>
+    <circle cx="300" cy="850" r="2" fill="#f2b34d" opacity="0.35"/>
+    <circle cx="2100" cy="900" r="3" fill="#c77b93" opacity="0.4"/>
+  </g>
+
+  <!-- browser chrome -->
+  <rect x="0" y="0" width="2400" height="64" fill="#0d1120"/>
+  <line x1="0" y1="64" x2="2400" y2="64" stroke="#1a2035" stroke-width="2"/>
+  <circle cx="42" cy="32" r="9" fill="#ef6f5b"/>
+  <circle cx="72" cy="32" r="9" fill="#f5b942"/>
+  <circle cx="102" cy="32" r="9" fill="#3ecf8e"/>
+  <rect x="1005" y="16" width="390" height="32" rx="16" fill="#161b2e" stroke="#242b45" stroke-width="1.5"/>
+
+  <!-- stage 1: input tensor -->
+  <circle cx="220" cy="680" r="110" fill="url(#coralGlow)"/>
+  <circle cx="220" cy="680" r="85" fill="none" stroke="#5c2a1f" stroke-opacity="0.5" stroke-width="2"/>
+  <circle cx="220" cy="680" r="65" fill="none" stroke="#7a3524" stroke-opacity="0.4" stroke-width="2"/>
+  <circle cx="220" cy="680" r="45" fill="none" stroke="#96401f" stroke-opacity="0.35" stroke-width="2"/>
+  <circle cx="220" cy="680" r="14" fill="#ef6a4c"/>
+
+  <!-- connector 1 -->
+  <line x1="320" y1="680" x2="760" y2="680" stroke="#2dd4a7" stroke-opacity="0.35" stroke-width="2"/>
+  <circle cx="450" cy="680" r="4" fill="#2dd4a7" opacity="0.6"/>
+  <circle cx="600" cy="680" r="4" fill="#f2b34d" opacity="0.5"/>
+  <path d="M 735 668 L 753 680 L 735 692" fill="none" stroke="#2dd4a7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+
+  <!-- stage 2: block-scaled quantization grid -->
+  <g>
+    <rect x="781" y="561" width="102" height="102" rx="14" fill="none" stroke="#2a2f45" stroke-opacity="0.6"/>
+    <rect x="901" y="561" width="102" height="102" rx="14" fill="none" stroke="#2a2f45" stroke-opacity="0.6"/>
+    <rect x="781" y="681" width="102" height="102" rx="14" fill="none" stroke="#2a2f45" stroke-opacity="0.6"/>
+    <rect x="901" y="681" width="102" height="102" rx="14" fill="none" stroke="#2a2f45" stroke-opacity="0.6"/>
+
+    <rect x="793" y="573" width="46" height="46" rx="8" fill="url(#cellA)"/>
+    <rect x="849" y="573" width="46" height="46" rx="8" fill="url(#cellB)"/>
+    <rect x="793" y="629" width="46" height="46" rx="8" fill="url(#cellC)"/>
+    <rect x="849" y="629" width="46" height="46" rx="8" fill="url(#cellD)"/>
+
+    <rect x="913" y="573" width="46" height="46" rx="8" fill="url(#cellD)"/>
+    <rect x="969" y="573" width="46" height="46" rx="8" fill="url(#cellA)"/>
+    <rect x="913" y="629" width="46" height="46" rx="8" fill="url(#cellB)"/>
+    <rect x="969" y="629" width="46" height="46" rx="8" fill="url(#cellC)"/>
+
+    <rect x="793" y="693" width="46" height="46" rx="8" fill="url(#cellB)"/>
+    <rect x="849" y="693" width="46" height="46" rx="8" fill="url(#cellC)"/>
+    <rect x="793" y="749" width="46" height="46" rx="8" fill="url(#cellD)"/>
+    <rect x="849" y="749" width="46" height="46" rx="8" fill="url(#cellA)"/>
+
+    <rect x="913" y="693" width="46" height="46" rx="8" fill="url(#cellC)"/>
+    <rect x="969" y="693" width="46" height="46" rx="8" fill="url(#cellD)"/>
+    <rect x="913" y="749" width="46" height="46" rx="8" fill="url(#cellA)"/>
+    <rect x="969" y="749" width="46" height="46" rx="8" fill="url(#cellB)"/>
+  </g>
+
+  <!-- connector 2 -->
+  <line x1="1007" y1="680" x2="1380" y2="680" stroke="#2dd4a7" stroke-opacity="0.35" stroke-width="2"/>
+  <circle cx="1120" cy="680" r="4" fill="#2dd4a7" opacity="0.6"/>
+  <circle cx="1260" cy="680" r="4" fill="#f2b34d" opacity="0.5"/>
+  <path d="M 1355 668 L 1373 680 L 1355 692" fill="none" stroke="#2dd4a7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+
+  <!-- stage 3: quantized-GEMM model graph -->
+  <g>
+    <circle cx="1500" cy="580" r="34" fill="url(#nodeGlow)"/>
+    <circle cx="1560" cy="620" r="34" fill="url(#nodeGlow)"/>
+    <circle cx="1560" cy="700" r="34" fill="url(#nodeGlow)"/>
+    <circle cx="1500" cy="740" r="34" fill="url(#nodeGlow)"/>
+    <circle cx="1440" cy="700" r="34" fill="url(#nodeGlow)"/>
+    <circle cx="1440" cy="620" r="34" fill="url(#nodeGlow)"/>
+
+    <line x1="1500" y1="580" x2="1560" y2="620" stroke="#f2b34d" stroke-opacity="0.5" stroke-width="2"/>
+    <line x1="1560" y1="620" x2="1560" y2="700" stroke="#f2b34d" stroke-opacity="0.5" stroke-width="2"/>
+    <line x1="1560" y1="700" x2="1500" y2="740" stroke="#f2b34d" stroke-opacity="0.5" stroke-width="2"/>
+    <line x1="1500" y1="740" x2="1440" y2="700" stroke="#f2b34d" stroke-opacity="0.5" stroke-width="2"/>
+    <line x1="1440" y1="700" x2="1440" y2="620" stroke="#f2b34d" stroke-opacity="0.5" stroke-width="2"/>
+    <line x1="1440" y1="620" x2="1500" y2="580" stroke="#f2b34d" stroke-opacity="0.5" stroke-width="2"/>
+    <line x1="1500" y1="580" x2="1560" y2="700" stroke="#f2b34d" stroke-opacity="0.35" stroke-width="2"/>
+    <line x1="1440" y1="620" x2="1500" y2="740" stroke="#f2b34d" stroke-opacity="0.35" stroke-width="2"/>
+
+    <circle cx="1500" cy="580" r="16" fill="#7c6ff0"/>
+    <circle cx="1560" cy="620" r="16" fill="#7c6ff0"/>
+    <circle cx="1560" cy="700" r="16" fill="#7c6ff0"/>
+    <circle cx="1500" cy="740" r="16" fill="#7c6ff0"/>
+    <circle cx="1440" cy="700" r="16" fill="#7c6ff0"/>
+    <circle cx="1440" cy="620" r="16" fill="#7c6ff0"/>
+  </g>
+
+  <!-- connector 3 -->
+  <line x1="1620" y1="680" x2="1880" y2="680" stroke="#2dd4a7" stroke-opacity="0.35" stroke-width="2"/>
+  <circle cx="1710" cy="680" r="4" fill="#2dd4a7" opacity="0.6"/>
+  <circle cx="1800" cy="680" r="4" fill="#f2b34d" opacity="0.5"/>
+  <path d="M 1855 668 L 1873 680 L 1855 692" fill="none" stroke="#2dd4a7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+
+  <!-- stage 4: verdict -->
+  <circle cx="2050" cy="680" r="170" fill="url(#emeraldGlow)"/>
+  <rect x="1835" y="630" width="430" height="100" rx="50" fill="#0e9f6e"/>
+  <path d="M 1885 680 L 1905 700 L 1940 655" fill="none" stroke="#f5b942" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="1965" y="692" font-family="'Segoe UI', Arial, sans-serif" font-size="30" font-weight="700" fill="#ffffff">Scale format wins</text>
+
+  <!-- title -->
+  <text x="1200" y="1350" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="68" font-weight="700" fill="#f7f5f2">Quantized GEMM Error</text>
+  <text x="1200" y="1400" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="30" fill="#9b96ab">Block-scaled 4-bit quantization · NVFP4 vs. MXFP4</text>
+</svg>
